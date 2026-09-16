@@ -113,8 +113,9 @@ Donne les règles importantes à mémoriser.
 Donne un exemple concret.
 
 ## 7. Mini-question
-Pose une petite question similaire pour vérifier
-la compréhension.
+Pose une petite question similaire pour vérifier la compréhension.
+
+Donne ensuite la réponse correcte avec une courte explication pédagogique.
 
 Réponds en français.
 Sois précis, pédagogique et adapté à un étudiant
