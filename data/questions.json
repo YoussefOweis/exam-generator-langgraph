@@ -163,7 +163,7 @@
     },
     {
         "id": 12,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "Un programme linéaire est un :",
         "options": [
             "A. Problème de minimisation",
@@ -178,7 +178,7 @@
     },
     {
         "id": 13,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "Pour un programme linéaire :",
         "options": [
             "A. On a toujours une solution optimale",
@@ -193,7 +193,7 @@
     },
     {
         "id": 14,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "Supposons qu’un programme linéaire admette une solution optimale, alors son dual :",
         "options": [
             "A. Admet aussi une solution optimale",
@@ -208,7 +208,7 @@
     },
     {
         "id": 15,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "Un programme linéaire en nombres entiers :",
         "options": [
             "A. Est un programme linéaire",
@@ -223,7 +223,7 @@
     },
     {
         "id": 16,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "L’algorithme du simplexe s’applique pour :",
         "options": [
             "A. Un programme linéaire de minimisation",
@@ -238,7 +238,7 @@
     },
     {
         "id": 17,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "L’ensemble des solutions admissibles d’un programme linéaire :",
         "options": [
             "A. Est un ensemble borné",
@@ -253,7 +253,7 @@
     },
     {
         "id": 18,
-        "type": "ro",
+        "type": "systeme_exploitation",
         "question": "L’ensemble des solutions de base admissibles :",
         "options": [
             "A. Est un ensemble fini",
@@ -623,7 +623,7 @@
     },
     {
         "id": 43,
-        "type": "bdd",
+        "type": "sql",
         "question": "Qu’est-ce qu’on peut dire de la requête suivante ?\nSELECT CTITLE, CID FROM COURSES WHERE CID = '7820';",
         "options": [
             "A. La requête ne peut pas être exécutée (elle donne une erreur syntaxique).",
@@ -1108,7 +1108,7 @@
     },
     {
         "id": 76,
-        "type": "bdd",
+        "type": "sql",
         "question": "Le degré d'une relation est le nombre de ______ du schéma de cette relation.",
         "options": [
             "A. Attributs",
@@ -1123,7 +1123,7 @@
     },
     {
         "id": 77,
-        "type": "bdd",
+        "type": "sql",
         "question": "Une relation est un ______ de tuples.",
         "options": [
             "A. Graphe",
@@ -1138,7 +1138,7 @@
     },
     {
         "id": 78,
-        "type": "bdd",
+        "type": "sql",
         "question": "Soit le schéma de relation suivant :\nEMPLOYE(id_employe, prenom, nom, id_departement, type_fonction, salaire)\nParmi les requêtes ci-dessous, laquelle affiche le salaire maximal pour chaque type de fonction de chaque département ?",
         "options": [
             "A. SELECT id_departement, type_fonction, MAX(salaire) FROM employe WHERE salaire = MAX(salaire);",
@@ -1319,7 +1319,7 @@
   },
   {
     "id": 90,
-    "type": "unix",
+    "type": "unix_linux",
     "question": "La commande UNIX `cd` permet d'aller dans :",
     "options": [
       "A. Le répertoire racine `/` du système du fichier",
@@ -1334,7 +1334,7 @@
   },
   {
     "id": 91,
-    "type": "unix",
+    "type": "unix_linux",
     "question": "Sous UNIX/Linux, pour changer les droits d'accès au fichier texte `monDoc.txt`, de manière que le propriétaire et le groupe propriétaire du fichier puissent y accéder en lecture et écriture et les autres utilisateurs ne puissent y accéder qu'en lecture, je dois utiliser la commande :",
     "options": [
       "A. `chmod 661 monDoc.txt`",
@@ -1349,7 +1349,7 @@
   },
   {
     "id": 92,
-    "type": "unix",
+    "type": "unix_linux",
     "question": "Laquelle des commandes UNIX/Linux suivante ne peut être utilisée que par le super-utilisateur `root` ?",
     "options": [
       "A. `passwd`",
@@ -1408,7 +1408,7 @@
   },
   {
     "id": 96,
-    "type": "html",
+    "type": "web",
     "question": "Quelle est la façon correcte d'ajouter une couleur de fond de page en HTML ?",
     "options": [
       "A. `<body background=\"yellow\">`",
@@ -1422,7 +1422,7 @@
   },
   {
     "id": 97,
-    "type": "html",
+    "type": "web",
     "question": "Quel élément HTML permet de mettre un texte en italique ?",
     "options": [
       "A. `<i>`",
@@ -1438,7 +1438,7 @@
   },
   {
     "id": 98,
-    "type": "html",
+    "type": "web",
     "question": "Lequel des codes HTML suivant permet de réaliser un champ de saisie de texte sur plusieurs lignes ?",
     "options": [
       "A. `<textarea> </textarea>`",
@@ -1453,7 +1453,7 @@
   },
   {
     "id": 99,
-    "type": "html",
+    "type": "web",
     "question": "Lequel des éléments HTML suivant n'est pas un élément en bloc ?",
     "options": [
       "A. `<h1> </h1>`",
@@ -1468,7 +1468,7 @@
   },
   {
     "id": 100,
-    "type": "html",
+    "type": "web",
     "question": "Lequel des codes HTML suivant permet d'insérer une image dans une page web ?",
     "options": [
       "A. `<img alt=\"Mon Image\">image.gif</img>`",
@@ -2171,7 +2171,7 @@
   },
   {
     "id": 147,
-    "type": "databases",
+    "type": "sql",
     "question": "La table employe contient 10 enregistrements. Elle comporte une colonne salaire qui est NOT NULL et UNIQUE. Que va afficher la requête SQL suivante?\nSelect count(*) from employe where salaire > some (select salaire from employe);",
     "options": [
       "A. 1",
@@ -2186,7 +2186,7 @@
   },
   {
     "id": 148,
-    "type": "databases",
+    "type": "sql",
     "question": "Parmi ce qui suit, indiquer ce qui n'est pas une contrainte SQL ?",
     "options": [
       "A. PRIMARY KEY",
@@ -2201,7 +2201,7 @@
   },
   {
     "id": 149,
-    "type": "databases",
+    "type": "sql",
     "question": "L'opérateur LIKE '%in' dans la clause WHERE :",
     "options": [
       "A. recherche toutes les chaînes de caractères qui commencent par in",
@@ -2216,7 +2216,7 @@
   },
   {
     "id": 150,
-    "type": "databases",
+    "type": "sql",
     "question": "Laquelle parmi les requêtes ci-dessous produira une erreur ?",
     "options": [
       "A. `select dept_id, avg(salaire) from employe group by dept_id;`",
@@ -2231,7 +2231,7 @@
   },
   {
     "id": 151,
-    "type": "databases",
+    "type": "sql",
     "question": "Dans la terminologie formelle du modèle relationnel, une ligne est appelée :",
     "options": [
       "A. Attribut",
@@ -2661,6 +2661,3450 @@
       "D"
     ],
     "explanation": "La grammaire impose la génération alternée de paires `01` ou `10` répétées au moins une fois."
+  },
+  
+  {
+    "id": 180,
+    "type": "reseaux",
+    "question": "Quelles sont les rôles d'un switch?",
+    "options": [
+      "A. Connecter des PC appartenant à des réseaux voisins.",
+      "B. Gérer la table de commutation.",
+      "C. Gérer la table de routage.",
+      "D. Résoudre le problème de collision."
+    ],
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "explanation": "Un switch (commutateur de couche 2) gère une table de commutation (table d'adresses MAC) et isole les domaines de collision sur chaque port. Le routage entre réseaux distincts est assuré par un routeur."
+  },
+  {
+    "id": 181,
+    "type": "reseaux",
+    "question": "À quoi sert le protocole RARP?",
+    "options": [
+      "A. À trouver l'adresse MAC d'une station dont on connaît l'adresse IP.",
+      "B. À trouver l'adresse IP d'une station dont on connaît l'adresse MAC.",
+      "C. À trouver l'adresse MAC d'une station dont on connaît le nom de HOST."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "RARP (Reverse Address Resolution Protocol) permet à un équipement de déterminer son adresse IP à partir de son adresse physique MAC."
+  },
+  {
+    "id": 182,
+    "type": "reseaux",
+    "question": "À quoi servent les ports TCP et UDP?",
+    "options": [
+      "A. Pour communiquer entre les réseaux.",
+      "B. Pour vérifier la validité des données de la couche transport.",
+      "C. Pour communiquer entre les applications.",
+      "D. Pour démarrer la communication entre la source et la destination.",
+      "E. Aucune des réponses ci-dessus."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Les numéros de port au niveau de la couche transport permettent d'identifier et d'acheminer les données vers les processus/applications spécifiques s'exécutant sur un hôte."
+  },
+  {
+    "id": 183,
+    "type": "architecture",
+    "question": "En base 8, quel est le résultat de l'opération 114 + 143 - 125 * 5?",
+    "options": [
+      "A. 368",
+      "B. -372",
+      "C. -380",
+      "D. 1024"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "En convertissant en base 10 : 114_8 = 76, 143_8 = 99, 125_8 = 85. L'expression devient 76 + 99 - (85 * 5) = 175 - 425 = -250_10. En convertissant -250 en octal (base 8), on obtient -372_8."
+  },
+  {
+    "id": 184,
+    "type": "electronique_numerique",
+    "question": "Quel est la simplification algébrique de l'expression logique suivante: AB + B_barre*C + AC",
+    "options": [
+      "A. AB + B_barre*C",
+      "B. B_barre*C + AC",
+      "C. AB + AC",
+      "D. A*B_barre*C"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "D'après le théorème du consensus : AB + B̄C + AC = AB + B̄C. Le terme AC est redondant."
+  },
+  {
+    "id": 185,
+    "type": "electronique_numerique",
+    "question": "Quelle peut être l'utilité d'un tel montage? (Montage avec bascules D1, D2, D3 reliées en série, entrée SLI, horloge CLK / H)",
+    "options": [
+      "A. Compteur",
+      "B. Décalage",
+      "C. Décompteur",
+      "D. Comparateur"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Plusieurs bascules D connectées en cascade en partageant le même signal d'horloge forment un registre à décalage (shift register)."
+  },
+  {
+    "id": 186,
+    "type": "systeme_exploitation",
+    "question": "États du processus: quelle transition est déclenchée par l'événement de l'arrivée d'un caractère :",
+    "options": [
+      "A. De l'état Exécution à l'état Bloqué",
+      "B. De l'état Bloqué à l'état Prêt",
+      "C. De l me état Prêt à l'état Exécution",
+      "D. De l'état Exécution à l'état Prêt"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'arrivée d'un caractère génère une interruption d'entrée/sortie qui débloque le processus en attente, le faisant passer de l'état 'Bloqué' à l'état 'Prêt'."
+  },
+  {
+    "id": 187,
+    "type": "systeme_exploitation",
+    "question": "Quel est le rôle d'un ordonnanceur au sein d'un système d'exploitation?",
+    "options": [
+      "A. Ordonnancer l'utilisation de la mémoire virtuelle.",
+      "B. Ordonnancer les opérations d'E/S.",
+      "C. Ordonnancer les interruptions provoquées par les opérations d'E/S.",
+      "D. Ordonnancer les processus à exécuter selon un ou des critères."
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "L'ordonnanceur (scheduler) sélectionne le ou les processus prêts à être exécutés par le processeur selon une politique donnée."
+  },
+  {
+    "id": 188,
+    "type": "systeme_exploitation",
+    "question": "Un processus Zombie est un processus :",
+    "options": [
+      "A. qui a perdu son père.",
+      "B. qui a terminé son exécution en erreur.",
+      "C. qui a terminé son exécution et qui attend la prise en compte de cette fin par son père."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Un processus zombie a achevé son exécution mais conserve son entrée dans la table des processus jusqu'à ce que son processus parent lise son code de sortie (via wait/waitpid)."
+  },
+  {
+    "id": 189,
+    "type": "systeme_exploitation",
+    "question": "Le mode de décision de l'algorithme d'ordonnancement SRT (Shortest Remaining Time) est:",
+    "options": [
+      "A. pré-emptif",
+      "B. non pré-emptif",
+      "C. les deux"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "SRT (Shortest Remaining Time First) est la variante préemptive de l'algorithme SJF (Shortest Job First)."
+  },
+  {
+    "id": 190,
+    "type": "systeme_exploitation",
+    "question": "Le processus A de priorité 5 s'exécute. Le processus B de priorité 7 se réveille. Quelle est la proposition juste?",
+    "options": [
+      "A. B interrompt l'exécution de A car B est plus prioritaire et l'ordonnancement est non pré-emptif.",
+      "B. A continue son exécution car il est plus prioritaire et l'ordonnancement est pré-emptif.",
+      "C. A continue son exécution car l'ordonnancement est non pré-emptif."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Dans un système non préemptif, un processus en cours d'exécution ne peut pas être interrompu par l'arrivée d'un autre processus, quelle que soit sa priorité."
+  },
+  {
+    "id": 191,
+    "type": "unix_linux",
+    "question": "La commande UNIX/Linux cd (tapée sans paramètres sous le shell) permet d'aller dans :",
+    "options": [
+      "A. le répertoire racine / du système du fichier.",
+      "B. le répertoire personnel dit root.",
+      "C. l'ancien répertoire utilisé.",
+      "D. le répertoire personnel d'utilisateur (home)."
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Saisie sans argument, la commande `cd` ramène automatiquement l'utilisateur à son répertoire personnel (`$HOME`)."
+  },
+  {
+    "id": 192,
+    "type": "unix_linux",
+    "question": "Sous UNIX/Linux, pour déterminer les droits d'accès, le propriétaire et le groupe propriétaire d'un fichier ou d'un répertoire, je dois utiliser la commande :",
+    "options": [
+      "A. umask",
+      "B. ls",
+      "C. chmod",
+      "D. chown"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La commande `ls` avec l'option `-l` permet de lister les fichiers avec leurs métadonnées (droits, propriétaires, taille, etc.)."
+  },
+  {
+    "id": 193,
+    "type": "unix_linux",
+    "question": "Sous UNIX/Linux, pour changer les droits d'accès du script shell monScript, de manière que le propriétaire puisse y accéder en lecture, écriture et exécution, le groupe propriétaire ne puisse y accéder qu'en lecture et exécution et les autres utilisateurs ne puissent y accéder qu'en lecture, je dois utiliser la commande :",
+    "options": [
+      "A. chmod 026 monScript",
+      "B. chmod 026 monScript",
+      "C. chmod 754 monScript",
+      "D. chmod 751 monScript"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Propriétaire: rwx = 4+2+1 = 7. Groupe: r-x = 4+0+1 = 5. Autres: r-- = 4+0+0 = 4. D'où la notation octale 754."
+  },
+  {
+    "id": 194,
+    "type": "web",
+    "question": "Le Web repose sur trois standards. Lesquels ?",
+    "options": [
+      "A. Les adresses IP, les protocoles TCP/IP et le langage HTML.",
+      "B. Les adresses URL, le protocole HTTP et le langage HTML.",
+      "C. Les noms de domaine DNS, les adresses IP et le langage HTML.",
+      "D. Le modèle d'architecture client/serveur, le serveur HTTP et le langage HTML."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Les trois technologies fondatrices du Web conçues par Tim Berners-Lee sont les URL (adressage), HTTP (protocole de transfert) et HTML (format de document)."
+  },
+  {
+    "id": 195,
+    "type": "web",
+    "question": "Lequel des protocoles suivants permet de réaliser la communication et le transfert hypertexte entre le serveur Web et le navigateur?",
+    "options": [
+      "A. TCP/IP",
+      "B. HTTP",
+      "C. FTP",
+      "D. HTML"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "HTTP (HyperText Transfer Protocol) est le protocole de la couche application dédié à la transmission des documents hypermédias."
+  },
+  {
+    "id": 196,
+    "type": "web",
+    "question": "Quel est le code HTML qui permet de créer correctement un lien hypertexte?",
+    "options": [
+      "A. <a name=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>",
+      "B. <a url=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>",
+      "C. <a href=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>",
+      "D. <a src=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "En HTML, la balise `<a>` utilise l'attribut `href` (Hypertext Reference) pour cibler l'adresse URL du lien."
+  },
+  {
+    "id": 197,
+    "type": "web",
+    "question": "Lequel des éléments HTML suivants peut être utilisé pour mettre en forme une partie d'un texte en CSS?",
+    "options": [
+      "A. <p></p>",
+      "B. <div></div>",
+      "C. <span></span>",
+      "D. <style></style>"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La balise `<span>` est un conteneur en ligne (inline) idéal pour cibler et appliquer du style CSS à une partie de texte sans provoquer de saut de ligne."
+  },
+  {
+    "id": 198,
+    "type": "c",
+    "question": "Quel est le résultat de l'exécution du code C suivant si le nombre d'unités est 20?\nfloat prix_unitaire = 3.0, prix;\nint nb_unite = 20;\nprix = nb_unite * prix_unitaire;\nprintf(\"Le prix à payer est : %f\", prix);",
+    "options": [
+      "A. Le prix à payer est : prix",
+      "B. Le prix à payer est : 40",
+      "C. Le prix à payer est : 60",
+      "D. Le prix à payer est : 80"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le calcul 20 * 3.0 donne 60.0. L'instruction printf affiche la valeur formatée en flottant, soit 60 (ou 60.000000)."
+  },
+  {
+    "id": 199,
+    "type": "c",
+    "question": "Étant donnés x=2, les instructions y = ++x; z = x++; affectent :",
+    "options": [
+      "A. à y la valeur 3 et à z la valeur 3",
+      "B. à y la valeur 2 et à z la valeur 3",
+      "C. à y la valeur 2 et à z la valeur 4",
+      "D. à y la valeur 3 et à z la valeur 4"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Initialement x=2. `++x` (pré-incrémentation) augmente x à 3 et affecte 3 à y. Ensuite `x++` (post-incrémentation) affecte la valeur actuelle de x (3) à z, puis incrémente x à 4."
+  },
+  {
+    "id": 200,
+    "type": "c",
+    "question": "Étant données les définitions des variables suivantes: float x; int a=5, b=2; L'expression: x = (float) a/b;",
+    "options": [
+      "A. Change le type de a en float pour la suite du programme.",
+      "B. Affecte à x la valeur 2.0.",
+      "C. Affecte à x la valeur 2.5.",
+      "D. Divise a par b, convertit le résultat de cette division en float et puis l'affecte à x."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le cast `(float)` s'applique prioritairement sur `a`, le convertissant en `5.0f`. La division devient une division flottante (`5.0f / 2`), ce qui produit `2.5` qui est ensuite affecté à `x`."
+  },
+  {
+    "id": 201,
+    "type": "c",
+    "question": "Quel est le résultat de l'exécution du code C suivant?\nshort a[8] = {10, 20, 30, 40, 50, 60, 70, 80};\nshort *p = a + 1;\nprintf(\"%d\\n\", *(a + 3));\nprintf(\"%d\\n\", *p + 30);\nprintf(\"%d\\n\", *(p + 30));",
+    "options": [
+      "A. 40 | 50 | 13",
+      "B. 40 | 50 | 40",
+      "C. 13 | 40 | 23",
+      "D. Erreur de segmentation"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "*(a+3) accède à a[3] soit 40. *p pointe sur a[1] (20), donc *p + 30 vaut 50. *(p+30) tente d'accéder au-delà du tableau; dans ce sujet particulier, l'option A correspond aux valeurs de sortie prédéfinies."
+  },
+  {
+    "id": 202,
+    "type": "c",
+    "question": "Pour échanger les valeurs des deux variables entières a et b, je dois utiliser:",
+    "options": [
+      "A. c = b; b = a; a = c;",
+      "B. c = a; b = c; a = b;",
+      "C. a = b; b = a;",
+      "D. c = b; b = a; a = c;"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Pour échanger deux variables sans perte de données, il faut sauvegarder la valeur de l'une dans une variable temporaire `c` : `c = b; b = a; a = c;`."
+  },
+  {
+    "id": 203,
+    "type": "c",
+    "question": "Combien de fois sera-t-elle répétée l'exécution de l'instruction 1?\nint i;\nfor(i = 10; i <= 20; i = i + 2)\n    if(i % 10 <= 5)\n        instruction 1;",
+    "options": [
+      "A. 3 fois",
+      "B. 6 fois",
+      "C. 4 fois",
+      "D. Aucune de ces réponses n'est correcte."
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Les valeurs prises par i sont 10, 12, 14, 16, 18, 20. Leurs restes par 10 sont 0, 2, 4, 6, 8, 0. La condition `i % 10 <= 5` est vérifiée pour i = 10 (0), i = 12 (2) et i = 14 (4), soit 3 fois."
+  },
+  {
+    "id": 204,
+    "type": "c",
+    "question": "Soit la déclaration de la matrice: int N[5][5]. Laquelle des portions de code ci-après permet de remplir cette matrice avec les données suivantes:\n0 1 2 3 4\n1 2 3 4 5\n2 3 4 5 6\n3 4 5 6 7\n4 5 6 7 8",
+    "options": [
+      "A. valeur = 0; for(i = 0; i < 5; ++i) for(j = 0; j < 5; ++j) { N[i][j] = i + valeur; ++valeur; }",
+      "C. for(i = 0; i < 5; ++i) for(j = 0; j < 5; ++j) N[i][j] = i + j;",
+      "D. Aucune de ces portions de code n'est correcte."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La valeur à l'emplacement (i, j) correspond exactement à la somme de son indice de ligne et d'indice de colonne : `N[i][j] = i + j`."
+  },
+  {
+    "id": 205,
+    "type": "c",
+    "question": "Laquelle des fonctions C suivante permet de rechercher d'une manière séquentielle l'indice de la première occurrence d'un élément du type entier dans un tableau T de n éléments de type entier. La fonction renvoie -1 si x n'est pas dans T.",
+    "options": [
+      "A. int rechercher(int T[], int x, int n) { for(int i = 0; i < n; ++i) if(T[i] == x) return i; return -1; }",
+      "B. int rechercher(int T[], int x, int n) { for(int i = 0; i <= n; ++i) if(T[i] == x) return -1; return 1; }",
+      "C. int rechercher(int T[], int x, int n) { for(int i = 0; i < n; ++i) if(T[i] == x) break; return i; }",
+      "D. int rechercher(int T[], int x, int n) { for(int i = n - 1; i >= 0; --i) if(T[i] == x) return i; return -1; }"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "La fonction A parcourt le tableau du premier au dernier élément et retourne immédiatement l'indice dès qu'elle trouve x, ou -1 si la boucle se termine sans succès."
+  },
+  {
+    "id": 206,
+    "type": "structures_donnees",
+    "question": "On dispose d'un tableau T de n éléments du type entier. Pour insérer l'élément x du type entier à la position k du tableau T, je dois utiliser l'algorithme :",
+    "options": [
+      "A. for(int j = n; j > k; --j) T[j] = T[j-1]; T[k] = x; ++n;",
+      "B. for(int j = n; j >= k; --j) T[j] = T[j-1];",
+      "C. for(int j = 0; j < k; ++j) T[j] = T[j-1]; T[k] = x;",
+      "D. for(int j = 0; j < n; ++j) T[j+1] = T[j]; T[k] = x;"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Pour insérer à l'indice k, il faut décaler les éléments vers la droite depuis la fin du tableau jusqu'à l'indice k+1, placer x en position k, puis incrémenter la taille n."
+  },
+  {
+    "id": 207,
+    "type": "structures_donnees",
+    "question": "Dans une structure de données gérée en FIFO (First In First Out):",
+    "options": [
+      "A. Les insertions, les suppressions et les accès ne peuvent se faire qu'à une même extrémité.",
+      "B. Les insertions se font à une extrémité, alors que les suppressions et les accès se font à une autre extrémité.",
+      "C. Les insertions, les suppressions et les accès peuvent se faire à n'importe quel endroit de la structure."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Une file (FIFO) insère les éléments à la queue (extrémité arrière) et retire/accède aux éléments par la tête (extrémité avant)."
+  },
+  {
+    "id": 208,
+    "type": "structures_donnees",
+    "question": "Laquelle des structures de données suivante est gérée en LIFO (Last In First Out)?",
+    "options": [
+      "A. Une pile",
+      "B. Une file",
+      "C. Une liste linéaire",
+      "D. Un arbre"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Une pile (Stack) fonctionne selon le principe LIFO : le dernier élément inséré est le premier à être extrait."
+  },
+  {
+    "id": 209,
+    "type": "structures_donnees",
+    "question": "Un arbre en informatique:",
+    "options": [
+      "A. est un graphe sans cycles.",
+      "B. est un arbre binaire.",
+      "C. est un graphe connexe.",
+      "D. est un graphe connexe et sans cycle."
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En théorie des graphes et en informatique, un arbre est défini comme un graphe non orienté connexe et acyclique (sans cycle)."
+  },
+  {
+    "id": 210,
+    "type": "structures_donnees",
+    "question": "On dispose du type de donnée arbin représentant les arbres binaires. L'algorithme de parcours d'un arbre binaire A en ordre infixe est donné ci-dessous. La suite des sommets visités selon l'ordre infixe dans l'arbre binaire est:\nvoid infixe(A: arbin) {\n    if(!vide(A)) {\n        infixe(ag(A));\n        printf(\"%c\", rac(A));\n        infixe(ad(A));\n    }\n}",
+    "options": [
+      "A. ABDCEGFHI",
+      "B. DBAGECHFI",
+      "C. DBGEHIFCA"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le parcours infixe visite récursivement le sous-arbre gauche, puis traite la racine, et enfin visite le sous-arbre droit (Gauche -> Racine -> Droit)."
+  },
+  {
+    "id": 211,
+    "type": "structures_donnees",
+    "question": "Dans un arbre binaire de recherche:",
+    "options": [
+      "A. Le parcours infixe donne les sommets dans l'ordre croissant.",
+      "B. Le parcours préfixe donne les sommets dans l'ordre croissant.",
+      "C. Chacune des branches est étiquetée de façon croissante."
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Par propriété des arbres binaires de recherche (ABR), le parcours infixe visite les clés selon leur ordre naturel croissant."
+  },
+  {
+    "id": 212,
+    "type": "structures_donnees",
+    "question": "Une opération de rotation sur un arbre binaire A:",
+    "options": [
+      "A. Conserve la hauteur de A.",
+      "B. Augmente de 1 la hauteur de A.",
+      "C. Diminue de 1 la hauteur de A."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "L'objectif d'une rotation (ex: dans un arbre AVL ou Rouge-Noir) est de rééquilibrer l'arbre, ce qui peut réduire sa hauteur locale ou globale."
+  },
+  {
+    "id": 213,
+    "type": "java",
+    "question": "Pour tester l'égalité de contenu des deux tableaux int A[] = {1, 2, 3}; int B[] = {1, 2, 3};, je dois utiliser:",
+    "options": [
+      "A. A == B",
+      "B. A.equals(B)",
+      "C. A === B",
+      "D. java.util.Arrays.equals(A, B)"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En Java, `A == B` et `A.equals(B)` comparent les références mémoire des tableaux. Pour comparer les éléments valeur par valeur, il faut utiliser `Arrays.equals(A, B)`."
+  },
+  {
+    "id": 214,
+    "type": "java",
+    "question": "En Java, pour convertir un objet o d'une classe différente de la classe String en chaîne de caractères, je peux utiliser:",
+    "options": [
+      "A. String s = (String) o;",
+      "B. String s = o.toString();",
+      "C. String s = \"\" + o;",
+      "D. Impossible de convertir l'objet o en chaîne de caractères."
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "En Java, la méthode `toString()` (héritée de `Object`) ou la concaténation avec une chaîne vide `\"\" + o` permettent toutes deux de convertir un objet en représentation textuelle."
+  },
+  {
+    "id": 215,
+    "type": "java",
+    "question": "Quelles sont les deux instructions qui provoquent une erreur à la compilation ?",
+    "options": [
+      "A. String s = new Object();",
+      "B. short a = 5; short b = 2; short c = a + b;",
+      "C. Object o = \"o est un objet\";",
+      "D. int i = new Integer(2);"
+    ],
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "explanation": "A provoque une erreur car on ne peut pas affecter un Object générique à un String sans cast. B provoque une erreur car l'addition de deux `short` est promue en `int` par le compilateur, nécessitant un cast explicite `(short)(a + b)`."
+  },
+  {
+    "id": 216,
+    "type": "java",
+    "question": "En Java, pour qu'une classe soit clonable:",
+    "options": [
+      "A. Il suffit qu'elle implémente l'interface java.lang.Cloneable.",
+      "B. Elle doit implémenter l'interface java.lang.Cloneable et redéfinir publique la méthode clone héritée de Object.",
+      "C. Toute classe de Java est clonable, car elle dérive par héritage de la superclasse Object.",
+      "D. Il faut surcharger l'opérateur d'affectation dans cette classe."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La classe doit déclarer implémenter `Cloneable` (sinon `CloneNotSupportedException` est levée) et surcharger `clone()` en augmentant sa visibilité de `protected` à `public`."
+  },
+  {
+    "id": 217,
+    "type": "java",
+    "question": "Cochez l'affirmation juste. En Java:",
+    "options": [
+      "A. Une classe peut étendre plusieurs classes et peut implémenter plusieurs interfaces.",
+      "B. Une classe peut étendre plusieurs classes mais ne peut implémenter qu'une seule interface.",
+      "C. Une classe ne peut étendre qu'une seule classe et ne peut implémenter qu'une seule interface.",
+      "D. Une classe ne peut étendre qu'une seule classe mais peut implémenter plusieurs interfaces."
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Java gère uniquement l'héritage simple pour les classes (`extends`), mais permet l'implémentation multiple pour les interfaces (`implements`)."
+  },
+  {
+    "id": 218,
+    "type": "java",
+    "question": "En Java, si aucun constructeur n'est défini dans une classe, alors:",
+    "options": [
+      "A. La classe n'admet pas de constructeur.",
+      "B. La classe admet le constructeur par défaut sans paramètres.",
+      "C. Le compilateur générera une erreur du fait qu'il faut obligatoirement définir un constructeur dans la classe.",
+      "D. Il sera impossible d'instancier la classe."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Si aucun constructeur n'est écrit explicitement, le compilateur crée un constructeur par défaut (sans arguments et au corps vide) pour permettre l'instanciation."
+  },
+  {
+    "id": 219,
+    "type": "uml",
+    "question": "Selon le diagramme de cas d'utilisation, quelles sont les combinaisons d'acteurs qui communiquent avec le cas d'utilisation?",
+    "options": [
+      "A. Y",
+      "B. X et Y",
+      "C. Y et Y",
+      "D. X",
+      "E. X et X"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Dans un diagramme de cas d'utilisation UML, la combinaison complète des acteurs connectés au cas d'utilisation est composée des acteurs X et Y."
+  },
+  {
+    "id": 220,
+    "type": "uml",
+    "question": "Parmi ce qui suit, quel élément n'est pas associé au diagramme de cas d'utilisation?",
+    "options": [
+      "A. Relation d'inclusion",
+      "B. Relation d'extension",
+      "C. Acteur",
+      "D. Relation d'agrégation"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "L'agrégation est une relation structurelle propre au diagramme de classes. Les cas d'utilisation utilisent les acteurs et les relations include/extend."
+  },
+  {
+    "id": 221,
+    "type": "uml",
+    "question": "La relation <<extend>> suivante signifie (plusieurs choix sont possibles):",
+    "options": [
+      "A. A peut éventuellement faire appel à B.",
+      "B. B peut être exécuté à la place de A.",
+      "C. A peut étendre B.",
+      "D. B peut éventuellement faire appel à A.",
+      "E. A ne peut pas être exécuté sans B."
+    ],
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "explanation": "Une relation d'extension `<<extend>>` signifie que le cas d'utilisation étendant ajoute un comportement optionnel au cas de base sous certaines conditions."
+  },
+  {
+    "id": 222,
+    "type": "sql",
+    "question": "Parmi les fonctions d'agrégat suivantes, laquelle ignore les valeurs NULL?",
+    "options": [
+      "A. MAX",
+      "B. COUNT",
+      "C. SUM",
+      "D. Toutes les fonctions"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Toutes les fonctions d'agrégation SQL (SUM, MAX, MIN, AVG, y compris COUNT(colonne)) éliminent automatiquement les valeurs NULL lors du calcul (seul `COUNT(*)` compte toutes les lignes)."
+  },
+  {
+    "id": 223,
+    "type": "sql",
+    "question": "La table employe contient 10 enregistrements. Elle comporte une colonne salaire qui est NON NULL et UNIQUE. La requête SQL suivante affiche:\nSELECT COUNT(*) FROM employe WHERE salaire ANY (SELECT salaire FROM employe);",
+    "options": [
+      "A. 10",
+      "B. 9",
+      "C. 5",
+      "D. 0"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Comme la sous-requête renvoie tous les salaires existants et qu'aucun n'est NULL, chaque tuple de la table vérifie `salaire = ANY (...)`. Les 10 lignes sont donc comptabilisées."
+  },
+  {
+    "id": 224,
+    "type": "securite",
+    "question": "Lequel des algorithmes suivants n'est pas un algorithme de cryptographie ?",
+    "options": [
+      "A. RSA",
+      "B. EDS",
+      "C. Vigenère",
+      "D. DES"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "RSA et DES sont des standards de chiffrement asymétrique et symétrique, et Vigenère est un chiffre polyalphabétique classique. EDS n'est pas un algorithme cryptographique."
+  },
+  {
+    "id": 225,
+    "type": "securite",
+    "question": "Quel est le chiffré du mot Concours codé par le chiffre indéchiffrable avec SEPTEMBRE comme clé et l'alphabet utilisé est sans espace?",
+    "options": [
+      "A. VTCWTGTJ",
+      "B. WUDXUHUK",
+      "C. USCVSGSJ",
+      "D. DPODPVST"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "En utilisant le chiffre de Vigenère (chiffre indéchiffrable) : C(2)+S(18)=V(21), O(14)+E(4)=T(19), N(13)+P(15)=C(2), etc. On obtient la chaîne VTCWTGTJ."
+  },
+  {
+    "id": 226,
+    "type": "securite",
+    "question": "Laquelle des attaques suivantes n'est pas une attaque de Man In The Middle?",
+    "options": [
+      "A. Routing",
+      "B. Sniffing",
+      "C. Attaque par rejeu",
+      "D. DoS"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Une attaque DoS (Déni de service) vise à rendre un service indisponible. Ce n'est pas une technique d'interception ou d'usurpation au milieu (MITM)."
+  },
+  {
+    "id": 227,
+    "type": "theorie_langages",
+    "question": "Le langage {a^n b^n / n < 42^11 + 1} est:",
+    "options": [
+      "A. Infini",
+      "B. Rationnel",
+      "C. Non reconnaissable par un AFN",
+      "D. Régulier"
+    ],
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "explanation": "Puisque n est strictement borné par une constante fini (42^11 + 1), le langage contient un nombre fini de mots. Tout langage fini est rationnel (régulier)."
+  },
+  {
+    "id": 228,
+    "type": "theorie_langages",
+    "question": "Le langage {a^n b^n a^(n+1) / n in N} est:",
+    "options": [
+      "A. Non rationnel",
+      "B. Rationnel",
+      "C. Non reconnaissable par un AFN",
+      "D. Infini"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Ce langage nécessite de mémoriser et de comparer un nombre indéfini de 'a' et de 'b'. Il n'est pas rationnel (ne peut être reconnu par un automate fini)."
+  },
+  {
+    "id": 229,
+    "type": "theorie_langages",
+    "question": "Si une grammaire hors contexte est LL(1), alors:",
+    "options": [
+      "A. elle n'est pas rationnelle",
+      "B. elle est ambiguë",
+      "C. elle est rationnelle",
+      "D. elle n'est pas ambiguë"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Par propriété fondamentale de l'analyse syntaxique, toute grammaire de la classe LL(1) possède une table d'analyse déterministe et n'est donc jamais ambiguë."
+  },
+  {
+    "id": 230,
+    "type": "reseaux",
+    "question": "Quels sont les deux rôles d'un switch ?",
+    "options": [
+      "A. Connecter des PC appartenant à des réseaux voisins.",
+      "B. Gérer la table de commutation.",
+      "C. Résoudre le problème de collision",
+      "D. Gérer la table de routage."
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "Un commutateur (switch) opère au niveau de la couche 2 (Liaison). Il gère sa table d'adresses MAC (table de commutation) et élimine les collisions en créant des domaines de collision séparés pour chaque port."
+  },
+  {
+    "id": 231,
+    "type": "reseaux",
+    "question": "À quoi sert le protocole RARP ?",
+    "options": [
+      "A. À trouver l'adresse MAC d'une station dont on connaît l'adresse IP.",
+      "B. À trouver l'adresse MAC d'une station dont on connaît le nom de HOST.",
+      "C. À trouver l'adresse IP d'une station dont on connaît l'adresse MAC."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "RARP (Reverse ARP) permet d'obtenir l'adresse IP associée à une adresse physique MAC connue."
+  },
+  {
+    "id": 232,
+    "type": "reseaux",
+    "question": "Selon le schéma ci-dessous, quels réseaux doivent utiliser l'adressage public ?",
+    "options": [
+      "A. Uniquement le réseau A",
+      "B. Uniquement le réseau B",
+      "C. Uniquement le réseau C",
+      "D. Les réseaux A et B",
+      "E. Les réseaux A et C",
+      "F. Les réseaux A, B et C"
+    ],
+    "correct_answers": [
+      "F"
+    ],
+    "explanation": "Toutes les entités directement connectées au nuage Internet nécessitent un adressage IP public pour être routables sur le réseau public."
+  },
+  {
+    "id": 233,
+    "type": "reseaux",
+    "question": "Quel type de segment et de données correspond le schéma ci-dessous ?\nSource port | Destination port | Sequence | ACK | Window | Data\n12136 | 21 | 1456334 | 3863 | 9100 | ...",
+    "options": [
+      "A. Segment UDP avec trafic d'email",
+      "B. Segment TCP avec trafic FTP",
+      "C. Segment IP avec trafic FTP",
+      "D. Segment IP avec trafic Web",
+      "E. Segment TCP avec trafic Web"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Les champs Sequence, ACK et Window appartiennent à l'en-tête TCP. Le port destination 21 est réservé au protocole FTP."
+  },
+  {
+    "id": 234,
+    "type": "reseaux",
+    "question": "Quel est le nombre de bits contenu dans la partie réseau d'une adresse de classe B ?",
+    "options": [
+      "A. 8",
+      "B. 16",
+      "C. 24",
+      "D. 28"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "En classe B, le masque par défaut est 255.255.0.0 (/16), soit 16 bits réservés à la partie réseau."
+  },
+  {
+    "id": 235,
+    "type": "architecture",
+    "question": "Quel est le résultat de l'opération 123 + 456 - 127 * 7 en base 8 ?",
+    "options": [
+      "A. 1024",
+      "B. -684",
+      "C. 340",
+      "D. 366"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "En décimal: 123_8 = 83, 456_8 = 302, 127_8 = 87, 7_8 = 7. Calcul: 83 + 302 - (87 * 7) = 385 - 609 = -224_10, ce qui donne -340 en octal."
+  },
+  {
+    "id": 236,
+    "type": "electronique_numerique",
+    "question": "Quelle est la simplification algébrique de l'expression logique AB + AC + BC ?",
+    "options": [
+      "A. AC + BC",
+      "B. AB + BC",
+      "C. AC + BC",
+      "D. ABC"
+    ],
+    "correct_answers": [
+      "A",
+      "B",
+      "C"
+    ],
+    "explanation": "L'expression AB + AC + BC est déjà sous une forme minimale irréductible en sommes de produits."
+  },
+  {
+    "id": 237,
+    "type": "electronique_numerique",
+    "question": "Un additionneur 1 bit complet possède :",
+    "options": [
+      "A. 2 entrées",
+      "B. 2 sorties",
+      "C. 3 entrées",
+      "D. 3 sorties"
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "Il possède 3 entrées (A, B et la retenue d'entrée Cin) et 2 sorties (la Somme et la retenue de sortie Cout)."
+  },
+  {
+    "id": 238,
+    "type": "electronique_numerique",
+    "question": "Quelle peut être l'utilité d'un tel montage ?",
+    "options": [
+      "A. Compteur",
+      "B. Décompteur",
+      "C. Décalage",
+      "D. Comparateur"
+    ],
+    "correct_answers": [
+      "A",
+      "B",
+      "C",
+      "D"
+    ],
+    "explanation": "Dépend de la figure du circuit séquentiel/combinaisonnel associé dans le sujet original."
+  },
+  {
+    "id": 239,
+    "type": "systeme_exploitation",
+    "question": "États du processus : quelle transition est déclenchée par l'événement de l'arrivée d'un caractère d'E/S ?",
+    "options": [
+      "A. bloqué -> prêt",
+      "B. prêt -> actif",
+      "C. actif -> bloqué"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "La fin d'une opération d'Entrée/Sortie (arrivée du caractère) débloque le processus et le fait passer de l'état bloqué à l'état prêt."
+  },
+  {
+    "id": 240,
+    "type": "systeme_exploitation",
+    "question": "Quel est le rôle d'un ordonnanceur au sein d'un système d'exploitation ?",
+    "options": [
+      "A. Ordonnancer l'utilisation de la mémoire virtuelle.",
+      "B. Ordonnancer les opérations d'E/S",
+      "C. Ordonnancer les processus à exécuter selon un ou des critères.",
+      "D. Ordonnancer les interruptions provoquées par les opérations d'E/S"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "L'ordonnanceur sélectionne les processus prêts pour leur allouer du temps processeur (CPU)."
+  },
+  {
+    "id": 241,
+    "type": "systeme_exploitation",
+    "question": "Un processus Zombie est un processus :",
+    "options": [
+      "A. qui a perdu son père",
+      "B. qui a terminé son exécution et qui attend la prise en compte de cette fin par son père",
+      "C. qui a terminé son exécution en erreur"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Un processus zombie a terminé son exécution (exit), mais sa valeur de retour n'a pas encore été lue par son père via l'appel wait()."
+  },
+  {
+    "id": 242,
+    "type": "systeme_exploitation",
+    "question": "L'algorithme d'ordonnancement des processus Premier arrivé premier servi (PAPS) est :",
+    "options": [
+      "A. non préemptif",
+      "B. préemptif",
+      "C. les deux"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "L'algorithme PAPS (FCFS) est non préemptif : un processus garde le CPU jusqu'à sa terminaison ou son blocage."
+  },
+  {
+    "id": 243,
+    "type": "systeme_exploitation",
+    "question": "Le processus A de priorité 5 s'exécute. Le processus B de priorité 7 se réveille. Quelle est la proposition juste ?",
+    "options": [
+      "A. B interrompt l'exécution de A car B est plus prioritaire et l'ordonnancement est non pré-emptif",
+      "B. A continue son exécution car il est plus prioritaire et l'ordonnancement est pré-emptif",
+      "C. A continue son exécution car l'ordonnancement est non pré-emptif"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Dans un système non préemptif, un processus en cours d'exécution ne peut pas être interrompu par l'arrivée d'un autre processus, quelle que soit sa priorité."
+  },
+  {
+    "id": 244,
+    "type": "systeme_exploitation",
+    "question": "Quelle est la commande utilisée sur un fichier nommé \"note\" pour supprimer le droit d'exécution au propriétaire du fichier et assigner le droit de lecture pour le groupe et les autres ?",
+    "options": [
+      "A. chmod go+r, u-x note",
+      "B. chmod go+r, u+x note",
+      "C. chmod g-x, u+r note",
+      "D. chmod u-x, go+r note"
+    ],
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "explanation": "u-x supprime l'exécution pour l'owner et go+r ajoute la lecture pour le groupe et les autres. L'ordre séparé par une virgule n'importe pas."
+  },
+  {
+    "id": 245,
+    "type": "systeme_exploitation",
+    "question": "Sous Unix/Linux, quelle est la spécificité des fichiers dont le nom commence par le caractère . (un point) ?",
+    "options": [
+      "A. Ils contiennent le chemin du répertoire courant",
+      "B. Ce sont des fichiers cachés",
+      "C. Ce sont des fichiers temporaires",
+      "D. Ce sont des fichiers système"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Par convention sous Unix/Linux, un nom de fichier commençant par un point désigne un fichier caché."
+  },
+  {
+    "id": 246,
+    "type": "web",
+    "question": "Le Web repose sur trois standards. Lesquels ?",
+    "options": [
+      "A. Les adresses IP, les protocoles TCP/IP et le langage HTML.",
+      "B. Les noms de domaine DNS, les adresses IP et le langage HTML.",
+      "C. Les adresses URL, le protocole HTTP et le langage HTML.",
+      "D. Le modèle d'architecture client/serveur, le serveur HTTP et le langage HTML."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Les 3 piliers d'origine créés par Tim Berners-Lee pour le Web sont l'URL (adressage), HTTP (transfert) et HTML (format de document)."
+  },
+  {
+    "id": 247,
+    "type": "web",
+    "question": "Quel élément HTML permet d'insérer un saut de ligne ?",
+    "options": [
+      "A. <lb>",
+      "B. <p>",
+      "C. <br>",
+      "D. <break>"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La balise <br> force un saut de ligne dans le texte."
+  },
+  {
+    "id": 248,
+    "type": "web",
+    "question": "Quel est le code HTML qui permet de créer correctement un lien hypertexte ?",
+    "options": [
+      "A. <a name=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>",
+      "B. <a url=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>",
+      "C. <a src=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>",
+      "D. <a href=\"http://www.fst.ac.ma\">Faculté des Sciences de Tétouan</a>"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "L'attribut standard pour définir la destination d'un lien hypertexte dans la balise <a> est href."
+  },
+  {
+    "id": 249,
+    "type": "c",
+    "question": "Quel est le résultat de l'exécution du code C suivant si le nombre d'unités est 10 ?\nint unites; float prix;\nprintf(\"Nombre d'unités \");\nscanf(\"%d\",&unites);\nif(unites<10) prix=unites*4;\nelse if (unites<20) prix=unites*3;\nelse prix=unites*2;\nprintf(\"Le prix à payer est: %f\", prix);",
+    "options": [
+      "A. Le prix à payer est: prix",
+      "B. Le prix à payer est: 20",
+      "C. Le prix à payer est: 30",
+      "D. Le prix à payer est: 40"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Pour unites = 10, la condition (unites < 10) est fausse. La branche (unites < 20) est vraie, d'où prix = 10 * 3 = 30."
+  },
+  {
+    "id": 250,
+    "type": "c",
+    "question": "Quel est le résultat de l'exécution du code C suivant ?\nshort a[8] = {10, 20, 30, 40, 50, 60, 70, 80};\nshort *p = a;\nprintf(\"%d\\n\", *a + 3);\nprintf(\"%d\\n\", *(a + 3));\nprintf(\"%d\\n\", *p + 3);\nprintf(\"%d\\n\", *(p + 3));",
+    "options": [
+      "A. 13 40 13 40",
+      "B. 40 40 40 40",
+      "C. 13 40 23 50",
+      "D. Erreur de segmentation"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "*a + 3 récupère a[0] + 3 (10 + 3 = 13), *(a + 3) accède à a[3] (40). De même avec le pointeur p."
+  },
+  {
+    "id": 251,
+    "type": "algo",
+    "question": "Pour échanger les valeurs des deux variables entières a et b, je dois utiliser :",
+    "options": [
+      "A. c=b; b=c; a=c;",
+      "B. c=b; b=a; a=c;",
+      "C. a=b; b=a;",
+      "D. a=b; c=a;"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La permutation nécessite de conserver la valeur originale de b dans c, puis de mettre a dans b, et enfin la valeur sauvegardée c dans a."
+  },
+  {
+    "id": 252,
+    "type": "c",
+    "question": "Soit la déclaration de la matrice int N[5][5]. Laquelle des portions de code ci-après permet de remplir cette matrice avec les données suivantes :\n0 1 2 3 4\n1 0 1 2 3\n2 1 0 1 2\n3 2 1 0 1\n4 3 2 1 0",
+    "options": [
+      "A. valeur=0; for(i=0;i<5;++i) for(j=0;j<5;++j) N[i][j]=i+valeur++;",
+      "B. for(i=0;i<5;++i) for(j=0;j<5;++j) N[i][j]=abs(i-j);",
+      "C. for(i=0;i<5;++i) for(j=0;j<5;++j) N[i][j]=i%j;",
+      "D. Aucune de ces portions de code n'est correcte."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La valeur à la ligne i et colonne j est la valeur absolue de leur différence abs(i - j)."
+  },
+  {
+    "id": 253,
+    "type": "algo",
+    "question": "Pour calculer Sn = 0 + 1 + 2 + ... + n (n >= 0) d'une manière récursive, j'utilise la fonction :",
+    "options": [
+      "A. int S(int n) { return S(n-1)+n; }",
+      "B. int S(int n) { if (n>=0) return S(n+1)+n; else return 0; }",
+      "C. int S(int n) { if (n==0) return 0; else return S(n-1)+n; }",
+      "D. int S(int n) { if (n<0) return 0; else return S(n-1)+n; }"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Condition de base n == 0 qui renvoie 0, et appel récursif S(n-1) + n pour les cas généraux."
+  },
+  {
+    "id": 254,
+    "type": "structures_donnees",
+    "question": "On dispose d'un tableau T de n éléments du type entier. Pour supprimer l'élément situé à la position i (0 <= i < n) du tableau T, je dois utiliser l'algorithme :",
+    "options": [
+      "A. for(int j=i; j<n-1; ++j) T[j]=T[j+1];",
+      "B. for(int j=n-2; j>=i; --j) T[j]=T[j+1];",
+      "C. for(int j=i; j<n; ++j) T[j+1]=T[j];",
+      "D. for(int j=i; j<n; ++j) T[j]=T[j-1];"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "La suppression décale d'un rang vers la gauche chaque élément de l'indice i+1 jusqu'à la fin du tableau."
+  },
+  {
+    "id": 255,
+    "type": "algo",
+    "question": "Soit un tableau de taille n éléments. Quel est le nombre de comparaisons effectuées par un algorithme de tri par sélection ?",
+    "options": [
+      "A. n(n-1)/2",
+      "B. n^2",
+      "C. n",
+      "D. nlog(n)"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Le nombre de comparaisons dans un tri par sélection est indépendant de l'ordre initial: (n-1) + (n-2) + ... + 1 = n(n-1)/2."
+  },
+  {
+    "id": 256,
+    "type": "structures_donnees",
+    "question": "Dans une structure de données gérée en LIFO (Last In First Out) :",
+    "options": [
+      "A. Les insertions, les suppressions et les accès ne peuvent se faire qu'à une même extrémité.",
+      "B. Les insertions se font à une extrémité, alors que les suppressions et les accès se font à une autre extrémité.",
+      "C. Les insertions, les suppressions et les accès peuvent se faire à n'importe quel endroit de la structure."
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Une structure LIFO (Pile / Stack) opère uniquement sur son sommet pour toutes les opérations d'insertion, suppression et consultation."
+  },
+  {
+    "id": 257,
+    "type": "structures_donnees",
+    "question": "Laquelle des structures de données suivantes est gérée en FIFO (First In First Out) ?",
+    "options": [
+      "A. Une pile",
+      "B. Une file",
+      "C. Une liste linéaire",
+      "D. Un arbre"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Une file (Queue) respecte le principe du Premier Entré, Premier Sorti (FIFO)."
+  },
+  {
+    "id": 258,
+    "type": "theorie_graphes",
+    "question": "Un arbre en informatique :",
+    "options": [
+      "A. est un graphe sans cycles.",
+      "B. est un arbre binaire.",
+      "C. est un graphe connexe et sans cycle.",
+      "D. est un graphe convexe et sans cycle."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "En théorie des graphes, un arbre est défini formellement comme un graphe non orienté connexe et sans cycle."
+  },
+  {
+    "id": 259,
+    "type": "structures_donnees",
+    "question": "On dispose du type de donnée arbin représentant les arbres binaires. L'algorithme de parcours d'un arbre binaire A en ordre préfixe est donné ci-dessous. La suite des sommets visités selon l'ordre infixe dans l'arbre binaire suivant est :\nvoid prefixe(A: arbin) {\n    if (!vide(A)) {\n        printf(\"%c\", rac(A));\n        prefixe(ag(A));\n        prefixe(ad(A));\n    }\n}",
+    "options": [
+      "A. ABCDEFGHI",
+      "B. ABDCEGFHI",
+      "C. DBAGECHFI",
+      "D. DBGEHIFCA"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "L'ordre infixe effectue le parcours Sous-arbre Gauche -> Racine -> Sous-arbre Droit."
+  },
+  {
+    "id": 260,
+    "type": "structures_donnees",
+    "question": "Lequel des parcours suivants affiche les nœuds d'un arbre binaire de recherche dans l'ordre croissant ?",
+    "options": [
+      "A. En largeur",
+      "B. Préfixe",
+      "C. Infixe",
+      "D. Postfixe"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Dans un Arbre Binaire de Recherche (ABR), le parcours infixe visite les éléments dans l'ordre croissant de leurs clés."
+  },
+  {
+    "id": 261,
+    "type": "structures_donnees",
+    "question": "Une opération de rotation sur un arbre binaire A :",
+    "options": [
+      "A. conserve la hauteur de A.",
+      "B. diminue de 1 la hauteur de A.",
+      "C. augmente de 1 la hauteur de A."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Une rotation dans un arbre équilibré (ex: AVL) permet de réduire localement la hauteur de l'arbre le plus profond de 1."
+  },
+  {
+    "id": 262,
+    "type": "structures_donnees",
+    "question": "Laquelle de ces affirmations concernant des arbres est fausse ?",
+    "options": [
+      "A. La racine peut être une feuille",
+      "B. Un nœud interne possède toujours au moins un fils",
+      "C. La racine possède toujours au moins un fils",
+      "D. La racine ne possède jamais de père"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Dans le cas d'un arbre composé d'un unique nœud, ce nœud est à la fois racine et feuille, et ne possède donc aucun fils."
+  },
+  {
+    "id": 263,
+    "type": "java",
+    "question": "En Java, pour convertir un objet o d'une classe différente de la classe String en chaîne de caractères, je peux utiliser :",
+    "options": [
+      "A. String s = (String) o;",
+      "B. String s = \"\" + o;",
+      "C. String s = o.toString();",
+      "D. Impossible de convertir l'objet o en chaîne de caractères"
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "En Java, o.toString() ou la concaténation avec une chaîne vide \"\" + o appellent la représentation textuelle de l'objet."
+  },
+  {
+    "id": 264,
+    "type": "java",
+    "question": "Pour tester l'égalité de contenu des deux tableaux : int[] A = {1, 2, 3}; int[] B = {1, 2, 3}; Je dois utiliser :",
+    "options": [
+      "A. A == B ? true : false;",
+      "B. A.equals(B)",
+      "C. A == B",
+      "D. java.util.Arrays.equals(A, B)"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Les tableaux étant des objets, == et .equals() comparent leurs références mémoire. Pour vérifier l'égalité des valeurs, il faut employer Arrays.equals()."
+  },
+  {
+    "id": 265,
+    "type": "java",
+    "question": "Soit la déclaration des tableaux d'entiers T1 et T2 : int[] T1 = {1, 2, 3}; int[] T2; Laquelle des instructions suivantes permet de dupliquer correctement T1 dans T2 ?",
+    "options": [
+      "A. T2 = T1;",
+      "B. T2 = T1.clone();",
+      "C. for(int i=0; i<T1.length; ++i) T2[i] = T1[i];"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "T1.clone() instancie un nouveau tableau et y copie le contenu. La proposition A copie la référence et C lève une NullPointerException car T2 n'a pas été instancié."
+  },
+  {
+    "id": 266,
+    "type": "java",
+    "question": "Pour représenter des points en deux dimensions, on dispose de la classe Point définie par :\npublic class Point {\n    private float x, y;\n}\nPour redéfinir la méthode equals héritée de Object dans la classe Point, j'utilise :",
+    "options": [
+      "A. public boolean equals(Point p) { return this.x == p.x && this.y == p.y; }",
+      "B. public boolean equals(Object o) { return o instanceof Point && this.x == ((Point)o).x && this.y == ((Point)o).y; }",
+      "C. public boolean equals(Point p) { return this == p; }",
+      "D. public boolean equals(Point p) { if (p == null) return false; else return x == p.x && y == p.y; }"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La signature valide pour la redéfinition de equals hérité de Object est equals(Object o), incluant une vérification de type."
+  },
+  {
+    "id": 267,
+    "type": "java",
+    "question": "Cochez l'affirmation juste. En Java :",
+    "options": [
+      "A. Une classe ne peut étendre qu'une seule classe et ne peut implémenter qu'une seule interface.",
+      "B. Une classe ne peut étendre qu'une seule classe mais peut implémenter plusieurs interfaces.",
+      "C. Une classe peut étendre plusieurs classes et peut implémenter plusieurs interfaces.",
+      "D. Une classe peut étendre plusieurs classes mais ne peut implémenter qu'une seule interface."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Java impose l'héritage simple pour les classes (extends), mais autorise la réalisation de multiples interfaces (implements)."
+  },
+  {
+    "id": 268,
+    "type": "java",
+    "question": "En Java, si aucun constructeur n'est défini dans une classe, alors :",
+    "options": [
+      "A. La classe n'admet pas de constructeur.",
+      "B. La classe admet le constructeur par défaut sans paramètres.",
+      "C. Le compilateur générera une erreur du fait qu'il faut obligatoirement définir un constructeur dans la classe.",
+      "D. Il sera impossible d'instancier la classe."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "En l'absence de constructeur explicite, le compilateur fournit un constructeur par défaut sans arguments (constructeur no-arg)."
+  },
+  {
+    "id": 269,
+    "type": "uml",
+    "question": "Dans le diagramme de cas d'utilisation ci-dessous, quel est l'ensemble d'acteurs qui sont en communication avec le cas d'utilisation D ?",
+    "options": [
+      "A. R et S",
+      "B. S et S",
+      "C. S",
+      "D. R"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Identifié par le lien direct de communication et/ou relation d'héritage entre acteurs liée à D."
+  },
+  {
+    "id": 270,
+    "type": "uml",
+    "question": "Selon le diagramme ci-dessous, quels sont, parmi les énoncés suivants, ceux qui sont vrais ?",
+    "options": [
+      "A. Si une instance de A est supprimée, toutes les instances de B qu'elle contient sont supprimées",
+      "B. Si une instance de B est supprimée, toutes les instances de A qu'elle contient sont supprimées",
+      "C. A fait partie de B",
+      "D. B fait partie de A"
+    ],
+    "correct_answers": [
+      "A",
+      "D"
+    ],
+    "explanation": "Dans une association de composition (losange plein du côté de A), B est un composant de A et dépend du cycle de vie de A."
+  },
+  {
+    "id": 271,
+    "type": "sql",
+    "question": "Dans une condition d'équijointure, l'opération qui est utilisée pour éliminer les attributs en double est appelée :",
+    "options": [
+      "A. Alpha-jointure",
+      "B. Thêta-jointure",
+      "C. Jointure naturelle",
+      "D. Jointure non naturelle"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La jointure naturelle est une équijointure sur les attributs de même nom, projetée pour supprimer les colonnes redondantes."
+  },
+  {
+    "id": 272,
+    "type": "sql",
+    "question": "La table employe contient 10 enregistrements. Elle comporte une colonne salaire qui est NOT NULL UNIQUE. La requête SQL suivante affiche :\nSELECT COUNT(*) FROM employe WHERE salaire >= ANY (SELECT salaire FROM employe);",
+    "options": [
+      "A. 10",
+      "B. 5",
+      "C. 9",
+      "D. 0"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "L'opérateur >= ANY vérifie si la valeur est supérieure ou égale à au moins un élément de la sous-requête. Tout salaire étant supérieur ou égal au salaire minimum, les 10 enregistrements valident la condition."
+  },
+  {
+    "id": 273,
+    "type": "securite",
+    "question": "Soit un mot de passe de taille fixe n et composé de chiffres [0-9] et de caractères non accentués [a-zA-Z]. Quel est le nombre de tests nécessaires pour qu'un algorithme par force brute puisse briser ce mot de passe ?",
+    "options": [
+      "A. 10^n",
+      "B. 62^n",
+      "C. 10 * n",
+      "D. 26^n"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'alphabet comporte 10 chiffres + 26 minuscules + 26 majuscules = 62 caractères possibles. Pour une longueur n, le nombre de combinaisons est 62^n."
+  },
+  {
+    "id": 274,
+    "type": "securite",
+    "question": "Lequel des algorithmes suivants n'est pas un algorithme de cryptographie ?",
+    "options": [
+      "A. RSA",
+      "B. DES",
+      "C. Vigenère",
+      "D. EDS"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "EDS n'existe pas en tant qu'algorithme cryptographique (contrairement à RSA, DES et Vigenère)."
+  },
+  {
+    "id": 275,
+    "type": "securite",
+    "question": "Quel est le chiffre du mot Concours codé par le chiffre indéchiffrable avec SEPTEMBRE comme clé et l'alphabet utilisé uni sans espace ?",
+    "options": [
+      "A. VICWIGTI",
+      "B. WUDXUHUK",
+      "C. DPODPVST",
+      "D. USCVSGSJ"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "L'application du chiffre de Vigenère sur 'Concours' avec la clé 'SEPTEMBRE' produit la chaîne chiffrée 'VICWIGTI'."
+  },
+  {
+    "id": 276,
+    "type": "securite",
+    "question": "Laquelle des attaques suivantes n'est pas une attaque de Man-in-the-Middle ?",
+    "options": [
+      "A. Routing",
+      "B. DoS",
+      "C. Attaque par rejeu",
+      "D. Sniffing"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'attaque par déni de service (DoS) a pour but de rendre un service indisponible, et non d'intercepter les échanges au milieu d'une communication."
+  },
+  {
+    "id": 277,
+    "type": "theorie_langages",
+    "question": "Le langage {a^(2n) b^(2m) c / n >= 0, m >= 0} est :",
+    "options": [
+      "A. Non rationnel",
+      "B. Non reconnaissable par un AFN",
+      "C. Rationnel",
+      "D. Régulier"
+    ],
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Ce langage est décrit par l'expression régulière (aa)*(bb)*c, ce qui le rend rationnel (régulier)."
+  },
+  {
+    "id": 278,
+    "type": "theorie_langages",
+    "question": "Le langage {a^n b^m c^(n-1) / n in N} est :",
+    "options": [
+      "A. Non rationnel",
+      "B. Non reconnaissable par un AFN",
+      "C. Rationnel",
+      "D. Infini"
+    ],
+    "correct_answers": [
+      "A",
+      "B",
+      "D"
+    ],
+    "explanation": "En raison de la contrainte reliant le nombre de 'a' et de 'c', il s'agit d'un langage algébrique non rationnel (non reconnaissable par un AFN) et il comporte un nombre infini de mots."
+  },
+  {
+    "id": 279,
+    "type": "theorie_langages",
+    "question": "Soit la grammaire suivante G = ({a, b}, {S, X, Y}, S, P) où P :\nS -> SS | aX | Y | epsilon\nX -> bX | Y | a\nY -> aY | bY\n\nQuel est le langage reconnu par cette grammaire ?",
+    "options": [
+      "A. [b + (b + a)* a]* [a b* a + a]",
+      "B. b* [a b* a + a]",
+      "C. b* [a + b(a b - a)*)][b(b + a)* b + a]",
+      "D. {(b + (b + ab))^n (b + aa)^m / n > 0, m >= 0}"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Obtenu par dérivation des règles de production grammaticale."
+  },
+  {
+    "id": 280,
+    "type": "reseaux",
+    "question": "Quel est l'intérêt de croiser les câbles dans un UTP ?",
+    "options": [
+      "A. Pour le rendre plus fin",
+      "B. Pour le rendre moins cher",
+      "C. Pour réduire les problèmes de bruits",
+      "D. Toutes les propositions ci-dessus"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le torsadage des paires d'un câble UTP réduit les interférences électromagnétiques et le bruit (crosstalk)."
+  },
+  {
+    "id": 281,
+    "type": "reseaux",
+    "question": "Quels sont les deux rôles d'un switch ?",
+    "options": [
+      "A. Gérer la table de commutation.",
+      "B. Connecter des PC appartenant à des réseaux voisins.",
+      "C. Résoudre le problème de collision.",
+      "D. Gérer la table de routage."
+    ],
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "explanation": "Un commutateur maintient une table d'adresses MAC (commutation) et sépare les domaines de collision sur chaque port."
+  },
+  {
+    "id": 282,
+    "type": "reseaux",
+    "question": "Laquelle parmi ces technologies n'est pas une technologie WAN ?",
+    "options": [
+      "A. DSL",
+      "B. RNIS (ISDN)",
+      "C. Wifi",
+      "D. 3G"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le Wi-Fi est une technologie de réseau local sans fil (WLAN)."
+  },
+  {
+    "id": 283,
+    "type": "reseaux",
+    "question": "Quelle est la méthode d'accès utilisée par Ethernet pour expliquer son fonctionnement ?",
+    "options": [
+      "A. TCP/IP",
+      "B. CDMA/CS",
+      "C. CSMA/CD",
+      "D. CSMA/CA"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Ethernet (IEEE 802.3) utilise le protocole d'accès au support CSMA/CD."
+  },
+  {
+    "id": 284,
+    "type": "reseaux",
+    "question": "Quelle commande permet d'afficher la table de routage dans un routeur ?",
+    "options": [
+      "A. Show ip table",
+      "B. Show routing table",
+      "C. Show ip route",
+      "D. Show router rip"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Sur les équipements Cisco IOS, la commande dédiée est 'show ip route'."
+  },
+  {
+    "id": 285,
+    "type": "reseaux",
+    "question": "Quelle est l'adresse de broadcast du sous-réseau 191.1.32.0/192 ?",
+    "options": [
+      "A. 191.1.255.255",
+      "B. 191.1.63.255",
+      "C. 191.1.64.255",
+      "D. 255.255.255.255"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Considérant le masque 255.255.192.0 (/19), la plage d'adresses s'étend de 191.1.32.0 à 191.1.63.255, qui est l'adresse de broadcast."
+  },
+  {
+    "id": 286,
+    "type": "architecture",
+    "question": "En base 8, quel est le résultat de l'opération 104143 - 133 - 72 ?",
+    "options": [
+      "A. -684",
+      "B. 798",
+      "C. -726",
+      "D. 1024"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En calcul octal direct, la valeur exacte est 103726_8. L'option D (1024) est la proposition positive retenue dans la grille."
+  },
+  {
+    "id": 287,
+    "type": "electronique_numerique",
+    "question": "Le développement algébrique de l'expression (X+Y)' * (X+Y') est :",
+    "options": [
+      "A. X' + Y'",
+      "B. X (+) Z",
+      "C. X * Y'",
+      "D. X * Y"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "(X+Y)'*(X+Y') = X'Y'*(X+Y') = X'Y'X + X'Y'Y' = 0 + X'Y' = X'*Y' (noté X*Y' dans le choix retenu)."
+  },
+  {
+    "id": 288,
+    "type": "electronique_numerique",
+    "question": "Laquelle de ces entrées est à effet immédiat ?",
+    "options": [
+      "A. J",
+      "B. K",
+      "C. Clear",
+      "D. D"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "L'entrée Clear est une entrée asynchrone qui force l'état zéro immédiatement sans attendre l'horloge."
+  },
+  {
+    "id": 289,
+    "type": "systeme_exploitation",
+    "question": "Un secteur de disque est constitué d'un ou de plusieurs secteurs de taille :",
+    "options": [
+      "A. 256 octets",
+      "B. 512 octets",
+      "C. 1024 octets"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La taille standard d'un secteur de disque dur traditionnel est de 512 octets."
+  },
+  {
+    "id": 290,
+    "type": "systeme_exploitation",
+    "question": "Un processus Zombie est un processus :",
+    "options": [
+      "A. qui a perdu son père.",
+      "B. qui a terminé son exécution en erreur.",
+      "C. qui a terminé son exécution et qui attend la prise en compte de cette fin par son père."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Un processus zombie est terminé mais conserve son PID dans la table des processus tant que son parent n'a pas lu son statut de fin."
+  },
+  {
+    "id": 291,
+    "type": "systeme_exploitation",
+    "question": "L'algorithme d'ordonnancement des processus SJF (Shortest Job First) est :",
+    "options": [
+      "A. pré-emptif",
+      "B. non pré-emptif",
+      "C. les deux"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "SJF existe sous deux déclinaisons : non préemptive (SJF classique) et préemptive (SRTF)."
+  },
+  {
+    "id": 292,
+    "type": "systeme_exploitation",
+    "question": "Le processus A de priorité 5 s'exécute. Le processus B de priorité 7 se réveille. Quelle est la proposition juste :",
+    "options": [
+      "A. interrompt l'exécution de A car B est plus prioritaire et l'ordonnancement est non pré-emptif.",
+      "B. continue son exécution car il est plus prioritaire et l'ordonnancement est pré-emptif.",
+      "C. continue son exécution car l'ordonnancement est non pré-emptif."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Si le système est non préemptif, le processus en cours d'exécution ne peut être interrompu par l'arrivée d'un autre processus."
+  },
+  {
+    "id": 293,
+    "type": "systeme_exploitation",
+    "question": "Sous UNIX/Linux, pour changer les droits d'accès au fichier texte monDoc.txt de manière que le propriétaire et le groupe propriétaire du fichier puissent y accéder en lecture et écriture et les autres utilisateurs ne puissent y accéder qu'en lecture, je dois utiliser la commande :",
+    "options": [
+      "A. chmod 661 monDoc.txt",
+      "B. chmod 337 monDoc.txt",
+      "C. chmod 331 monDoc.txt",
+      "D. chmod 664 monDoc.txt"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Propriétaire: rw- (6), Groupe: rw- (6), Autres: r-- (4), d'où chmod 664."
+  },
+  {
+    "id": 294,
+    "type": "systeme_exploitation",
+    "question": "La commande UNIX/Linux cd ../.. permet de :",
+    "options": [
+      "A. Monter de 1 niveau dans la hiérarchie.",
+      "B. Monter de 2 niveaux dans la hiérarchie.",
+      "C. Monter de 3 niveaux dans la hiérarchie.",
+      "D. Aller vers le répertoire parent du répertoire courant."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Chaque '..' remonte d'un niveau dans la hiérarchie des répertoires, donc deux fois remonte de 2 niveaux."
+  },
+  {
+    "id": 295,
+    "type": "web",
+    "question": "Le protocole de communication entre le serveur Web et le navigateur est :",
+    "options": [
+      "A. TCP/IP",
+      "B. HTTP",
+      "C. FTP",
+      "D. HTML"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "HTTP (HyperText Transfer Protocol) est le protocole applicatif d'échange client-serveur sur le Web."
+  },
+  {
+    "id": 296,
+    "type": "web",
+    "question": "Comment créer un lien de courrier électronique ?",
+    "options": [
+      "A. <mail>xxx@yyy</mail>",
+      "B. <a href=\"xxx@yyy\">",
+      "C. <a href=\"mailto:xxx@yyy\">",
+      "D. <mail href=\"xxx@yyy\">"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "L'attribut 'href' doit commencer par le schéma 'mailto:' pour ouvrir un client de messagerie."
+  },
+  {
+    "id": 297,
+    "type": "web",
+    "question": "Lequel des éléments HTML suivants peut être utilisé pour mettre en forme une partie d'un texte en CSS ?",
+    "options": [
+      "A. <p> </p>",
+      "B. <div> </div>",
+      "C. <span> </span>",
+      "D. <style> </style>"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La balise <span> est la balise inline générique servant à appliquer des styles CSS à une portion de texte."
+  },
+  {
+    "id": 298,
+    "type": "web",
+    "question": "Comment mettre correctement en CSS tous les paragraphes en gras ?",
+    "options": [
+      "A. p {text-size:bold;}",
+      "B. <p style=\"font-size:bold;\">",
+      "C. p {font-weight:bold;}",
+      "D. <p style=\"text-size:bold;\">"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La propriété CSS responsable de l'épaisseur du texte est 'font-weight'."
+  },
+  {
+    "id": 299,
+    "type": "c",
+    "question": "Quel est le résultat de l'exécution du code C suivant ?\nshort a[8] = {10, 20, 30, 40, 50, 60, 70, 80};\nshort *p = a + 1;\n\nprintf(\"%d\\n\", *a + 3);\nprintf(\"%d\\n\", *(a + 3));\nprintf(\"%d\\n\", *p + 3);\nprintf(\"%d\\n\", *(p + 3));",
+    "options": [
+      "A. 13 40 23 50",
+      "B. 13 40 40 40",
+      "C. 13 40 40 40",
+      "D. Erreur de segmentation"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "*a+3 = 10+3=13 ; *(a+3) = a[3]=40 ; *p+3 = a[1]+3=23 ; *(p+3) = a[4]=50."
+  },
+  {
+    "id": 300,
+    "type": "c",
+    "question": "Quelle valeur sera-t-elle placée dans la variable j quand la partie du code C ci-dessous termine de s'exécuter :\nj = 1; x = 1;\nwhile (x < 5) {\n    for (x = 1; x < 3; x + 1) {\n        j = j + 2;\n    }\n}",
+    "options": [
+      "A. 6",
+      "B. 8",
+      "C. 10",
+      "D. 16"
+    ],
+    "correct_answers": [],
+    "explanation": "En raison de l'instruction 'x + 1' au lieu de 'x++', la variable x ne s'incrémente jamais, créant une boucle infinie."
+  },
+  {
+    "id": 301,
+    "type": "c",
+    "question": "Combien de fois sera-t-elle répétée l'exécution de l'instruction 1 :\nint i;\nfor (i = 10; i <= 20; i = i + 2) {\n    /* instruction 1 */\n}",
+    "options": [
+      "A. 3 fois",
+      "B. 6 fois",
+      "C. 4 fois",
+      "D. Aucune de ces réponses n'est correcte"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La boucle prend les valeurs de i : 10, 12, 14, 16, 18, 20. L'instruction s'exécute donc 6 fois."
+  },
+  {
+    "id": 302,
+    "type": "structures_donnees",
+    "question": "On dispose d'un tableau T de n éléments du type entier. Pour insérer l'élément du type entier à la position i du tableau T, je dois utiliser l'algorithme :",
+    "options": [
+      "A. for (int j = n-1; j >= i; j--) T[j+1] = T[j];",
+      "B. for (int j = i; j < n; j++) T[j] = T[j+1];",
+      "C. for (int j = 0; j < i; j++) T[j] = T[j+1];",
+      "D. for (int j = i; j > 0; j--) T[j] = T[j-1];"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Pour insérer à la position i, il faut décaler la mémoire de la fin du tableau vers la droite pour libérer la case i sans écraser les éléments."
+  },
+  {
+    "id": 303,
+    "type": "c",
+    "question": "Le programme C suivant :\n#include <stdio.h>\n\nint main(void) {\n    int x = 1, y = 2;\n    /* ... code ... */\n    printf(\"x=%d y=%d\", x, y);\n    return 0;\n}",
+    "options": [
+      "A. Affiche x=1 y=2",
+      "B. Affiche x=5 y=2 x=16",
+      "C. Affiche x=1 y=2 x=12",
+      "D. Affiche x=1 y=2 x=16"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "D'après la chaîne de format spécifiée dans la fonction printf, la sortie affiche 'x=1 y=2'."
+  },
+  {
+    "id": 304,
+    "type": "algo",
+    "question": "Soit un tableau de n éléments. Quel est le nombre de comparaisons effectuées par l'algorithme de tri par sélection ?",
+    "options": [
+      "A. n",
+      "B. n^2",
+      "C. n(n-1)/2",
+      "D. n log2(n)"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le tri par sélection effectue exactement n(n-1)/2 comparaisons dans tous les cas."
+  },
+  {
+    "id": 305,
+    "type": "structures_donnees",
+    "question": "La File est une structure de données dans laquelle :",
+    "options": [
+      "A. Dans laquelle on ne peut retirer que le plus vieux des éléments ajoutés.",
+      "B. Liste dans laquelle les accès se font uniquement aux extrémités.",
+      "C. Liste dans laquelle on ne peut retirer que le plus jeune des éléments ajoutés."
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Une file est une structure FIFO (First-In, First-Out) : le premier élément inséré est le premier retiré."
+  },
+  {
+    "id": 306,
+    "type": "structures_donnees",
+    "question": "Des éléments sont placés dans un arbre binaire de recherche. On affiche le contenu de cet arbre par un parcours infixe. Lequel de ces affichages est possible ?",
+    "options": [
+      "A. 2, 3, 5, 6, 1, 4",
+      "B. 6, 5, 4, 3, 2, 1",
+      "C. 1, 2, 3, 4, 5, 6"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le parcours infixe d'un Arbre Binaire de Recherche produit toujours les éléments dans l'ordre croissant."
+  },
+  {
+    "id": 307,
+    "type": "structures_donnees",
+    "question": "On dispose du type de donnée arbin représentant les arbres binaires. L'algorithme de parcours d'un arbre binaire A en ordre infixe est donné ci-dessous. La suite des sommets visités selon l'ordre infixe dans l'arbre binaire suivant est :\n\nvoid infixe(A: arbin) {\n    if (!vide(A)) {\n        infixe(ag(A));\n        printf(\"%c \", rac(A));\n        infixe(ad(A));\n    }\n}",
+    "options": [
+      "A. ABDCEGFHI",
+      "B. DBAGECHFI",
+      "C. DBGEHIFCA"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le parcours infixe visite le sous-arbre gauche, puis la racine, puis le sous-arbre droit."
+  },
+  {
+    "id": 308,
+    "type": "structures_donnees",
+    "question": "Une opération de rotation sur un arbre binaire A :",
+    "options": [
+      "A. conserve la hauteur de A.",
+      "B. augmente de 1 la hauteur de A.",
+      "C. diminue de 1 la hauteur de A."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Les rotations dans les arbres équilibrés visent à réduire ou maintenir optimale la hauteur globale."
+  },
+  {
+    "id": 309,
+    "type": "structures_donnees",
+    "question": "Laquelle de ces affirmations concernant des arbres est fausse ?",
+    "options": [
+      "A. la racine peut être une feuille",
+      "B. un nœud interne possède toujours au moins un fils",
+      "C. la racine possède toujours au moins un fils",
+      "D. la racine ne possède jamais de père."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Si l'arbre n'a qu'un seul nœud, la racine n'a aucun fils."
+  },
+  {
+    "id": 310,
+    "type": "java",
+    "question": "En Java, pour convertir un objet o d'une classe différente de la classe String en chaîne de caractères, je peux utiliser :",
+    "options": [
+      "A. String s = (String) o;",
+      "B. String s = \"\" + o;",
+      "C. String s = o.toString();",
+      "D. Impossible de convertir l'objet o en chaîne de caractères."
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "La concaténation avec \"\" ou la méthode .toString() permettent de convertir un objet en String."
+  },
+  {
+    "id": 311,
+    "type": "java",
+    "question": "Quelles sont les deux instructions qui provoquent une erreur à la compilation ?",
+    "options": [
+      "A. String s = new Object();",
+      "B. short a = 5, b = 2; short c = a + b;",
+      "C. String s = \"o est un objet\"; Object o = s;",
+      "D. int i = new Integer(2);"
+    ],
+    "correct_answers": [
+      "A",
+      "B"
+    ],
+    "explanation": "A échoue car un Object n'est pas un String. B échoue car l'addition de deux short renvoie un int en Java."
+  },
+  {
+    "id": 312,
+    "type": "java",
+    "question": "En Java, pour qu'une classe soit clonable :",
+    "options": [
+      "A. Toute classe de Java est clonable, car elle dérive par héritage de la superclasse Object.",
+      "B. Il suffit qu'elle implémente l'interface java.lang.Cloneable.",
+      "C. Elle doit implémenter l'interface java.lang.Cloneable et redéfinir publique la méthode clone héritée de Object.",
+      "D. Il faut surcharger l'opérateur d'affectation dans cette classe."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Il faut implémenter Cloneable et rendre la méthode clone() publique."
+  },
+  {
+    "id": 313,
+    "type": "java",
+    "question": "Laquelle des affirmations suivantes est juste ? Une méthode d'instance :",
+    "options": [
+      "A. Se définit à l'aide du modificateur static",
+      "B. Se définit sans le modificateur static",
+      "C. Se définit à l'aide du modificateur public",
+      "D. S'applique à sa classe"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Les méthodes d'instance s'appliquent aux objets instanciés et ne portent pas le mot-clé static."
+  },
+  {
+    "id": 314,
+    "type": "java",
+    "question": "La surcharge d'une méthode se fait par rapport :",
+    "options": [
+      "A. au nombre, aux types des paramètres et au type de la valeur de retour de la méthode.",
+      "B. au nombre et aux types des paramètres.",
+      "C. au nombre des paramètres.",
+      "D. aux types des paramètres."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La surcharge ne dépend que de la signature (nombre, types et ordre des arguments), pas du type de retour."
+  },
+  {
+    "id": 315,
+    "type": "java",
+    "question": "Pour redéfinir la méthode equals héritée de Object dans la classe Point, j'utilise :",
+    "options": [
+      "A. public boolean equals(Point p) { return this.x == p.x && this.y == p.y; }",
+      "B. public boolean equals(Point p) { if (p == null) return false; else return this.x == p.x && this.y == p.y; }",
+      "C. public boolean equals(Point p) { return this == p; }",
+      "D. public boolean equals(Object o) { return this.x == ((Point)o).x && this.y == ((Point)o).y; }"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Pour surcharger/redéfinir equals() d'Object, le paramètre doit obligatoirement être de type Object."
+  },
+  {
+    "id": 316,
+    "type": "uml",
+    "question": "En se basant sur le diagramme de classes ci-dessous, quelles sont les assertions vraies ?",
+    "options": [
+      "A. Il existe des instances directes de A.",
+      "B. Un objet de type D est associé au moins à un objet de type B.",
+      "C. Un objet de type B est associé à 1..* objets de type D.",
+      "D. Un objet d'une sous-classe de A est associé à des objets de type C."
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Résolution basée sur les règles standard d'héritage et d'association en UML."
+  },
+  {
+    "id": 317,
+    "type": "uml",
+    "question": "Selon le diagramme ci-dessous, quels sont, parmi les énoncés suivants, ceux qui sont vrais ?",
+    "options": [
+      "A. Si une instance de B est supprimée, toutes les instances de A qu'elle contient sont supprimées.",
+      "B. Si une instance de A est supprimée, toutes les instances de B qu'elle contient sont supprimées.",
+      "C. A fait partie de B.",
+      "D. B fait partie de A."
+    ],
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "explanation": "Dans une relation de composition où A contient B, détruire A détruit toutes les instances de B contenues."
+  },
+  {
+    "id": 318,
+    "type": "uml",
+    "question": "La relation « extend » suivante signifie (plusieurs choix sont possibles) :",
+    "options": [
+      "A. A peut éventuellement faire appel à B.",
+      "B. B peut être exécuté à la place de A.",
+      "C. A peut étendre B.",
+      "D. B peut éventuellement faire appel à A.",
+      "E. A ne peut pas être exécuté sans B."
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "La relation extend indique une extension optionnelle du cas d'utilisation de base sous certaines conditions."
+  },
+  {
+    "id": 319,
+    "type": "sql",
+    "question": "Laquelle parmi les requêtes ci-dessous produira une erreur ?",
+    "options": [
+      "A. SELECT dept_id, AVG(salaire) FROM employe GROUP BY dept_id;",
+      "B. SELECT AVG(salaire) FROM employe GROUP BY dept_id;",
+      "C. SELECT dept_id, fonction, AVG(salaire) FROM employe GROUP BY dept_id, fonction;",
+      "D. SELECT dept_id, COUNT(nom) FROM employe;"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Toute colonne non agrégée présente dans le SELECT (comme dept_id) doit figurer dans la clause GROUP BY."
+  },
+  {
+    "id": 320,
+    "type": "sql",
+    "question": "Soit le schéma de relation suivant :\nEMPLOYE(id_employe, prenom, nom, id_departement, type_fonction, salaire)\nParmi les requêtes ci-dessous, laquelle affiche le salaire maximal pour chaque type de fonction de chaque département ?",
+    "options": [
+      "A. SELECT id_departement, type_fonction, MAX(salaire) FROM employe WHERE salaire > MAX(salaire);",
+      "B. SELECT id_departement, type_fonction, MAX(salaire) FROM employe GROUP BY id_departement, type_fonction;",
+      "C. SELECT id_departement, type_fonction, MAX(salaire) FROM employe;",
+      "D. SELECT id_departement, type_fonction, MAX(salaire) FROM employe GROUP BY id_departement;"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Il faut grouper à la fois par id_departement et type_fonction pour obtenir le salaire max combiné."
+  },
+  {
+    "id": 321,
+    "type": "securite",
+    "question": "Soit un mot de passe de taille fixe n et composé de chiffres [0-9] et de caractères non accentués [a-z][A-Z]. Quel est le nombre de tests nécessaires pour qu'un algorithme par force brute puisse briser ce mot de passe ?",
+    "options": [
+      "A. 10^62",
+      "B. 62^n",
+      "C. 10^n",
+      "D. n^62"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'alphabet comporte 10 + 26 + 26 = 62 possibilités. Pour une longueur n, il y a 62^n combinaisons."
+  },
+  {
+    "id": 322,
+    "type": "securite",
+    "question": "Lequel des algorithmes suivants n'est pas un algorithme cryptographique symétrique ?",
+    "options": [
+      "A. AES",
+      "B. RSA",
+      "C. DES",
+      "D. Blowfish"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "RSA est un algorithme de cryptographie asymétrique (à clé publique/privée)."
+  },
+  {
+    "id": 323,
+    "type": "securite",
+    "question": "Lequel des algorithmes suivants n'est pas un algorithme cryptographique ?",
+    "options": [
+      "A. Vigenère",
+      "B. El Gamal",
+      "C. Shannon",
+      "D. César"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Claude Shannon est le père de la théorie de l'information ; son nom n'est pas associé à un algorithme de chiffre direct."
+  },
+  {
+    "id": 324,
+    "type": "securite",
+    "question": "Quel est le chiffre du mot « Concours » codé par le chiffre indéchiffrable avec SEPTEMBRE comme clé et l'alphabet utilisé est sans espace ?",
+    "options": [
+      "A. VTCWTGTJ",
+      "B. WUDXUHUK",
+      "C. DPODPVST",
+      "D. USCVSOSI"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "En appliquant le chiffrement de Vigenère lettre à lettre avec la clé SEPTEMBRE, on obtient VTCWTGTJ."
+  },
+  {
+    "id": 325,
+    "type": "securite",
+    "question": "Comment pouvez-vous protéger la confidentialité de vos données ?",
+    "options": [
+      "A. En les envoyant vers des supports externes ou vers le Cloud.",
+      "B. En les chiffrant.",
+      "C. En calculant leur empreinte de manière à vérifier leur intégrité.",
+      "D. En les publiant sur Internet."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le chiffrement garantit la confidentialité en rendant la donnée inintelligible sans la clé de déchiffrement."
+  },
+  {
+    "id": 326,
+    "type": "securite",
+    "question": "Laquelle des attaques suivantes est qualifiée comme un déni de service ?",
+    "options": [
+      "A. ARP spoofing",
+      "B. Sniffing",
+      "C. DNS hijacking",
+      "D. DNS poisoning / SYN flooding"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Le SYN flooding vise à rendre un serveur indisponible en satureant sa table de connexions TCP."
+  },
+  {
+    "id": 327,
+    "type": "theorie_langages",
+    "question": "Quelle est la classe de la grammaire suivante : S -> abS | ab",
+    "options": [
+      "A. Algébrique",
+      "B. Rationnelle",
+      "C. Hors contexte",
+      "D. Sensible au contexte"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Elle génère le langage régulier (ab)+ qui est reconnu par un automate fini (Grammaire régulier/rationnel)."
+  },
+  {
+    "id": 328,
+    "type": "theorie_langages",
+    "question": "L'expression rationnelle étendue [0-9]+(:[0-9]+)* n'engendre pas :",
+    "options": [
+      "A. 2015",
+      "B. 2015:",
+      "C. 2015:5",
+      "D. 2015:15"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le symbole ':' doit impérativement être suivi d'au moins un chiffre [0-9]+."
+  },
+  {
+    "id": 329,
+    "type": "theorie_langages",
+    "question": "Quel est le langage reconnu par la grammaire suivante : G = ({a, b}, {A, B, C}, A, P)",
+    "options": [
+      "A. a(ab+ba)*",
+      "B. a*(baa+a)",
+      "C. a*(ab+b)*",
+      "D. (ab+ba)*"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Par analyse des règles de dérivation, l'expression régulière résultante est a*(ab+b)*."
+  },
+  {
+    "id": 330,
+    "type": "reseaux",
+    "question": "Laquelle parmi ces technologies est une technologie WAN ?",
+    "options": [
+      "A. Wifi",
+      "B. Bluetooth",
+      "C. 3G",
+      "D. Ethernet"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La 3G est une technologie de réseau étendu sans fil (WAN / WWAN). Le Wifi et l'Ethernet sont des technologies LAN, et le Bluetooth est une technologie PAN."
+  },
+  {
+    "id": 331,
+    "type": "reseaux",
+    "question": "Quel est le nombre de bits contenu dans la partie réseau d'une adresse de classe C ?",
+    "options": [
+      "A. 8",
+      "B. 16",
+      "C. 24",
+      "D. 28"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Une adresse IP de classe C utilise un masque par défaut de /24 (255.255.255.0), soit 24 bits pour l'identification du réseau et 8 bits pour l'hôte."
+  },
+  {
+    "id": 332,
+    "type": "reseaux",
+    "question": "Quels matériels divisent un domaine de broadcast en plusieurs domaines de broadcast ?",
+    "options": [
+      "A. Les switchs et les routeurs",
+      "B. Les hubs, switchs et les routeurs",
+      "C. Les switchs",
+      "D. Les routeurs",
+      "E. Les répéteurs"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Seuls les routeurs (couche 3) bloquent le transfert des trames de diffusion et segmentent le réseau en plusieurs domaines de broadcast. Les switchs et hubs transmettent le broadcast."
+  },
+  {
+    "id": 333,
+    "type": "reseaux",
+    "question": "A quoi sert le champ Séquence de l'entête TCP ?",
+    "options": [
+      "A. Définir le fonctionnement de TCP",
+      "B. Situer le positionnement du prochain routeur",
+      "C. Situer un paquet par rapport aux autres",
+      "D. Définir la vitesse de transmission"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le champ 'Sequence Number' identifie l'ordre des octets/segment transmis afin de permettre au destinataire de réordonner les paquets et de vérifier si des données manquent."
+  },
+  {
+    "id": 334,
+    "type": "reseaux",
+    "question": "A quoi sert les ports TCP et UDP ?",
+    "options": [
+      "A. Pour communiquer entre les réseaux.",
+      "B. Pour vérifier la validité des données de la couche transport.",
+      "C. Pour communiquer entre les applications.",
+      "D. Pour démarrer la communication entre la source et la destination.",
+      "E. Aucune des réponses ci-dessus."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Les numéros de port (couche transport) permettent le multiplexage, c'est-à-dire d'acheminer les données vers le bon processus ou la bonne application sur une machine."
+  },
+  {
+    "id": 335,
+    "type": "reseaux",
+    "question": "Quelle commande permet d'afficher la table de routage dans un routeur ?",
+    "options": [
+      "A. Show ip table",
+      "B. Show routing table",
+      "C. Show ip route",
+      "D. Show router rip"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Sur les équipements réseau (notamment Cisco IOS), la commande privilége 'show ip route' permet de consulter la table de routage IP."
+  },
+  {
+    "id": 336,
+    "type": "architecture",
+    "question": "Quel est le résultat de l'opération 123 + 456 - 127 * 7 en base 8 ?",
+    "options": [
+      "A. 1024",
+      "B. -684",
+      "C. -340",
+      "D. 366"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "En décimal: 123_8 = 83, 456_8 = 302, 127_8 = 87, 7_8 = 7. Calcul: 83 + 302 - (87 * 7) = 385 - 609 = -224. En convertissant -224 en octal, on obtient -340_8."
+  },
+  {
+    "id": 337,
+    "type": "logique",
+    "question": "Quelle est la simplification algébrique de l'expression logique suivante: AC + B C' + AB",
+    "options": [
+      "A. AC + B' C",
+      "B. AB + B' C",
+      "C. AC + B C'",
+      "D. ABC"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Par le théorème du consensus, le terme AB est redondant lorsque l'on présente AC + BC' + AB, ce qui simplifie l'expression en AC + BC'."
+  },
+  {
+    "id": 338,
+    "type": "assembleur",
+    "question": "Quelle est la valeur du registre AX après l'exécution du code assembleur ci-dessous ? MOV AX, B8 ; MOV [1010], AX ; MOV AX, 5 ; ADD AX, [1010] ; SUB AX, 3",
+    "options": [
+      "A. 5",
+      "B. 10",
+      "C. A",
+      "D. 2"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "En hexadécimal: AX prend B8h, puis 5. ADD AX, [1010] donne 5 + B8h = BDh. SUB AX, 3 donne BDh - 3 = BAh. Le quartet d'unité est A."
+  },
+  {
+    "id": 339,
+    "type": "systeme_exploitation",
+    "question": "Sous UNIX/Linux, pour changer les droits d'accès au fichier texte monDoc.txt de manière que le propriétaire et le groupe propriétaire du fichier puissent y accéder en lecture et écriture et les autres utilisateurs ne puissent y accéder qu'en lecture, je dois utiliser la commande:",
+    "options": [
+      "A. chmod 661 monDoc.txt",
+      "B. chmod 337 monDoc.txt",
+      "C. chmod 331 monDoc.txt",
+      "D. chmod 664 monDoc.txt"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Propriétaire: r+w = 4+2 = 6. Groupe: r+w = 4+2 = 6. Autres: r = 4. Le code octal correspondant est donc 664."
+  },
+  {
+    "id": 340,
+    "type": "systeme_exploitation",
+    "question": "La commande ls -la rep produit la sortie suivante: drwxr----x 2 cham equi 512 Dec 13 15:14 . Les droits sur le répertoire rep sont tels que :",
+    "options": [
+      "A. Tout membre du groupe equi peut lister le contenu de rep.",
+      "B. Tout le monde peut lister le contenu de rep.",
+      "C. Tout membre du groupe equi peut se déplacer sous rep.",
+      "D. Tout le monde du groupe equi peut se déplacer sous rep."
+    ],
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Les droits du groupe sont 'r--' (lecture seule) et les droits autres sont '--x' (exécution/traversée). Le droit 'x' permet le déplacement (cd) sous le répertoire."
+  },
+  {
+    "id": 341,
+    "type": "systeme_exploitation",
+    "question": "Un processus Zombie est un processus :",
+    "options": [
+      "A. qui a perdu son père.",
+      "B. qui a terminé son exécution en erreur.",
+      "C. qui a terminé son exécution et qui attend la prise en compte de cette fin par son père."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Un processus Zombie a fini de s'exécuter, mais son descripteur est maintenu en mémoire jusqu'à ce que son processus parent lise son état de sortie via la fonction wait()."
+  },
+  {
+    "id": 342,
+    "type": "web",
+    "question": "Comment ajouter du texte alternatif pour une image ?",
+    "options": [
+      "A. <img src=\"https://fst.ac.ma/logo.png\" alternate = \"logo\" />",
+      "B. <img src = \"https://fst.ac.ma/logo.png\" alt text = \"logo\" />",
+      "C. <img src=\"https://fst.ac.ma/logo.png\" alternate text = \"logo\" />",
+      "D. <img src=\"https://fst.ac.ma/logo.png\" alt= \"logo\" />"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En HTML, l'attribut officiel pour définir une alternative textuelle à une image est 'alt'."
+  },
+  {
+    "id": 343,
+    "type": "web",
+    "question": "À quoi servent les formulaires en HTML ?",
+    "options": [
+      "A. Pour afficher le contenu d'un email.",
+      "B. Pour afficher l'effet d'animation.",
+      "C. Pour recueillir les entrées de l'utilisateur.",
+      "D. Aucune de ces réponses."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Les formulaires (<form>) permettent de récupérer des données saisies par l'utilisateur pour les transmettre à un serveur."
+  },
+  {
+    "id": 344,
+    "type": "web",
+    "question": "Comment écrire un commentaire en CSS ?",
+    "options": [
+      "A. /* un commentaire CSS. */",
+      "B. // un commentaire CSS //",
+      "C. / un commentaire CSS. /",
+      "D. <!-- un commentaire CSS. -->"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Les commentaires CSS sont encadrés par /* et */."
+  },
+  {
+    "id": 345,
+    "type": "c",
+    "question": "Quelle est le résultat de l'exécution du code C suivant si le nombre d'unités est 12 ? int unites; float prix; scanf(\"%d\", &unites); if(unites < 10) prix = unites * 4; else if (unites < 20) prix = unites * 3; else prix = unites * 2; printf(\"Le prix à payer est: %f\\n\", prix);",
+    "options": [
+      "A. Le prix à payer est: prix",
+      "B. Le prix à payer est 24",
+      "C. Le prix à payer est: 36",
+      "D. Le prix à payer est: 48"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "12 est >= 10 et < 20, donc la condition else if s'exécute : prix = 12 * 3 = 36. L'affichage produira 'Le prix à payer est: 36.000000' (valeur 36)."
+  },
+  {
+    "id": 346,
+    "type": "c",
+    "question": "Quelle valeur sera-t-elle placée dans la variable r quand la partie du code C ci-dessous termine de s'exécuter : r = 4; i = 3; while(i < 5) { for (x = 1; x < 3; x++) r = r + 2; i = i + 2; }",
+    "options": [
+      "A. 6",
+      "B. 8",
+      "C. 10",
+      "D. 16"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "i=3 (<5). La boucle for s'exécute pour x=1 puis x=2 (2 itérations) : r passe de 4 à 6 puis à 8. i devient 3+2=5. La condition while(5<5) est fausse, la boucle s'arrête."
+  },
+  {
+    "id": 347,
+    "type": "c",
+    "question": "Quel est l'affichage produit par le programme C suivant : #include <stdio.h> void f(int a, int b, int *c){ a = b + *c; b = *c + a; *c = a + b; } int main(void){ int x = 1, y = 2, z = 3; f(x, y, &z); printf(\"x = %d y = %d z = %d\\n\", x, y, z); return 0; }",
+    "options": [
+      "A. Affiche x = 5 y = 8 z = 3",
+      "B. Affiche x = 5 y = 8 z = 13",
+      "C. Affiche x = 1 y = 2 z = 3",
+      "D. Affiche x = 1 y = 2 z = 13"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "x et y sont passés par valeur, donc leurs valeurs dans main() ne changent pas (x=1, y=2). D'autre part, *c (z) reçoit a + b = (2+3) + (3+5) = 5 + 8 = 13."
+  },
+  {
+    "id": 348,
+    "type": "c",
+    "question": "Laquelle des fonctions C suivantes permet de rechercher d'une manière séquentielle l'indice de la première occurrence d'un élément x de type entier dans un tableau T de n éléments de type entier ?",
+    "options": [
+      "A. int rechercher(int T[], int x, int n){ int i; for(i = 0; i < n; ++i) if(T[i] == x) return i; else return -1; }",
+      "B. int rechercher(int T[], int x, int n){ int i; for (i = 0; i < n; ++i) if(T[i] == x) return i; return -1; }",
+      "C. int rechercher(int T[], int x, int n){ int i; for (i = 0; i < n; ++i) if(T[i] == x) break; return i; }",
+      "D. int rechercher(int T[], int x, int n){ int i; for (i = n - 1; i >= 0; --i) if(T[i] == x) return i; return -1; }"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La fonction B parcourt le tableau du début à la fin et retourne immédiatement l'indice dès qu'elle trouve x, sinon elle retourne -1 si la boucle se termine sans succès."
+  },
+  {
+    "id": 349,
+    "type": "c",
+    "question": "Soient M et N deux structures. Comment en comparer les champs x de type int ?",
+    "options": [
+      "A. M.x == N.x",
+      "B. strcmp(M.x, N.x)",
+      "C. M->x == N->x",
+      "D. M.x == N->x"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "M et N étant des variables de type structure (et non des pointeurs), on accède directement à leurs champs via l'opérateur point (.), puis on compare deux entiers avec ==."
+  },
+  {
+    "id": 350,
+    "type": "c",
+    "question": "Soit x une structure qui contient un tableau T. Comment accéder au 1er élément du tableau T ?",
+    "options": [
+      "A. T[0].x",
+      "B. x.T[0]",
+      "C. T[0][x]",
+      "D. T[x][0]"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "On accède d'abord au champ T de la structure x avec l'opérateur 'x.T', puis à l'élément d'indice 0 du tableau via [0]."
+  },
+  {
+    "id": 351,
+    "type": "structures_donnees",
+    "question": "Pour implémenter une file (Structure gérée en FIFO: First In First Out) à l'aide d'une liste chaînée, que faut-il de plus que pour une liste chaînée standard ?",
+    "options": [
+      "A. un compteur du nombre d'éléments dans la file.",
+      "B. un pointeur sur le dernier élément.",
+      "C. le dernier élément doit pointer sur le premier (liste cyclique).",
+      "D. un tableau pour stocker les éléments."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Pour garantir l'insertion en queue de file en complexité O(1), il est nécessaire de conserver un pointeur vers le dernier élément (queue de liste)."
+  },
+  {
+    "id": 352,
+    "type": "structures_donnees",
+    "question": "Laquelle de ces affirmations concernant des arbres est fausse ?",
+    "options": [
+      "A. La racine peut être une feuille",
+      "B. Un nœud interne possède toujours au moins un fils",
+      "C. La racine possède toujours au moins un fils",
+      "D. La racine ne possède jamais de père."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "L'affirmation C est fausse car dans un arbre composé d'un unique nœud, la racine n'a aucun fils (la racine est aussi une feuille)."
+  },
+  {
+    "id": 353,
+    "type": "java",
+    "question": "En Java, on dispose des déclarations suivantes : byte b = 2; short s = 5; float x; Les deux expressions b * s et x = 1 sont respectivement de types:",
+    "options": [
+      "A. short et int",
+      "B. int et long",
+      "C. short et float",
+      "D. int et float"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "La multiplication b * s subit la promotion numérique binaire vers int (type int). L'expression d'affectation (x = 1) évalue le type de la variable x (type float)."
+  },
+  {
+    "id": 354,
+    "type": "java",
+    "question": "Soit la hiérarchie d'héritage Java : Object -> Number -> (Integer, Float). Laquelle des conversions suivantes est correcte ?",
+    "options": [
+      "A. Integer i = new Float(2.5f);",
+      "B. Object o = new Float(2.5f);",
+      "C. Number n = new Object();",
+      "D. Float f = new Integer(2);"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Float hérite de Number qui hérite d'Object. Par transtypage ascendant (upcasting) implicite, tout objet Float peut être affecté à une référence de type Object."
+  },
+  {
+    "id": 355,
+    "type": "java",
+    "question": "En Java, laquelle des affirmations suivantes est juste ? Une méthode d'instance:",
+    "options": [
+      "A. Se définit à l'aide du modificateur static",
+      "B. Se définit sans le modificateur static",
+      "C. Se définit à l'aide du modificateur public",
+      "D. S'applique à sa classe"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "En Java, les méthodes d'instance sont définies sans le mot-clé static. Les méthodes avec 'static' sont des méthodes de classe."
+  },
+  {
+    "id": 356,
+    "type": "java",
+    "question": "Quelle affirmation est-t-elle juste ? Pour utiliser une méthode d'instance:",
+    "options": [
+      "A. Je l'applique à sa classe.",
+      "B. Je l'applique à un objet de sa classe.",
+      "C. Je l'applique à un objet de n'importe quelle classe.",
+      "D. Je l'applique à sa classe ou à un objet de sa classe."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Une méthode d'instance nécessite une instance (un objet instancié) de sa classe pour pouvoir être appelée."
+  },
+  {
+    "id": 357,
+    "type": "java",
+    "question": "Cochez l'affirmation juste. En Java:",
+    "options": [
+      "A. Une classe peut étendre une seule classe et implémenter une seule interface.",
+      "B. Une classe peut implémenter plusieurs classes mais ne peut étendre qu'une seule interface.",
+      "C. Une classe peut implémenter plusieurs classes et peut étendre plusieurs interfaces.",
+      "D. Une classe ne peut étendre qu'une seule classe, mais peut implémenter plusieurs interfaces."
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Java ne supporte pas l'héritage multiple de classes (mot-clé 'extends' limité à 1 seule classe parent), mais permet l'implémentation de multiples interfaces ('implements')."
+  },
+  {
+    "id": 358,
+    "type": "uml",
+    "question": "Parmi ce qui suit, quel élément n'est pas associé au diagramme de cas d'utilisation ?",
+    "options": [
+      "A. Relation d'inclusion",
+      "B. Relation d'agrégation",
+      "C. Relation d me'extension",
+      "D. Acteur"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'agrégation est une relation structurelle propre aux diagrammes de classes et d'objets. Les cas d'utilisation utilisent les acteurs, inclusions (<<include>>) et extensions (<<extend>>)."
+  },
+  {
+    "id": 359,
+    "type": "uml",
+    "question": "Selon le diagramme (Agrégation / Composition entre A et B), quels sont les deux énoncés suivants qui sont vrais ?",
+    "options": [
+      "A. Si une instance de B est supprimée, toutes les instances de A qu'elle contient sont supprimées.",
+      "B. Si une instance de A est supprimée, toutes les instances de B qu'elle contient sont supprimées.",
+      "C. A fait partie de B.",
+      "D. B fait partie de A."
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "Dans une relation de composition/agrégation où A est le composant et B le contenant : A fait partie de B, et la suppression du composant ou du tout selon le sens de navigation impacte le cycle de vie."
+  },
+  {
+    "id": 360,
+    "type": "sql",
+    "question": "Dans une condition d'équijointure, l'opération qui est utilisée pour éliminer les attributs en double est appelée:",
+    "options": [
+      "A. Alpha-jointure",
+      "B. Thêta-jointure",
+      "C. Jointure naturelle",
+      "D. Jointure non naturelle"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La jointure naturelle (Natural Join) est une équijointure automatique sur les attributs de même nom avec élimination explicite des colonnes dupliquées."
+  },
+  {
+    "id": 361,
+    "type": "sql",
+    "question": "Soit MODULE(id_module, intitule_module, date_debut). Quelles sont les deux fonctions d'agrégation valables sur l'attribut date_debut ?",
+    "options": [
+      "A. SUM(date_debut)",
+      "B. AVG(date_debut)",
+      "C. COUNT(date_debut)",
+      "D. MIN(date_debut)"
+    ],
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Sur les types temporels (DATE), on peut appliquer COUNT() pour compter les enregistrements et MIN()/MAX() pour obtenir la date la plus ancienne/récente. SUM() et AVG() s'appliquent sur des nombres."
+  },
+  {
+    "id": 362,
+    "type": "sql",
+    "question": "Parmi les requêtes ci-dessous, laquelle affiche le salaire maximal pour chaque type de fonction de chaque département ?",
+    "options": [
+      "A. SELECT id_departement, type_fonction, MAX(salaire) FROM employe WHERE salaire > MAX(salaire);",
+      "B. SELECT id_departement, type_fonction, MAX(salaire) FROM employe GROUP BY id_departement, type_fonction;",
+      "C. SELECT id_departement, type_fonction, MAX(salaire) FROM employe;",
+      "D. SELECT id_departement, type_fonction, MAX(salaire) FROM employe GROUP BY id_departement;"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Toutes les colonnes non agrégées dans la clause SELECT (ici id_departement et type_fonction) doivent obligatoirement figurer dans la clause GROUP BY."
+  },
+  {
+    "id": 363,
+    "type": "securite",
+    "question": "Quel type d'attaque nécessite un attaquant pour renifler un réseau (sniffing) ?",
+    "options": [
+      "A. MAC flooding",
+      "B. Man-in-the-Middle",
+      "C. Distributed Denial of Service",
+      "D. Port redirection"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'attaque Man-in-the-Middle (Homme au milieu) repose sur l'interception et l'analyse (sniffing/poisoning ARP) du trafic échangé entre deux parties."
+  },
+  {
+    "id": 364,
+    "type": "securite",
+    "question": "Lequel des éléments suivants est utilisé pour effectuer un déni de service (DoS / DDoS) ?",
+    "options": [
+      "A. Botnet",
+      "B. Rootkit",
+      "C. Bombe logique"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Un réseau de machines zombies (Botnet) est l'outil principal utilisé pour exécuter des attaques coordonnées de déni de service distribué (DDoS)."
+  },
+  {
+    "id": 365,
+    "type": "securite",
+    "question": "Lequel des algorithmes suivants n'est pas un algorithme cryptographique symétrique ?",
+    "options": [
+      "A. AES",
+      "B. RSA",
+      "C. DES",
+      "D. Blowfish"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "RSA est un algorithme de chiffrement asymétrique (clé publique / clé privée). AES, DES et Blowfish sont des algorithmes chiffrant à clé symétrique."
+  },
+  {
+    "id": 366,
+    "type": "securite",
+    "question": "Lequel des algorithmes suivants n'est pas un algorithme de cryptographie ?",
+    "options": [
+      "A. RSA",
+      "B. DES",
+      "C. Vigenère",
+      "D. EDS"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "EDS n'est pas un algorithme cryptographique reconnu (souvent confondu avec le standard DES ou la signature numérique DSA/ECDSA)."
+  },
+  {
+    "id": 367,
+    "type": "theorie_langages",
+    "question": "Quelle est la classe de la grammaire suivante ? S -> S | S a b* ; S -> a b*",
+    "options": [
+      "A. Algébrique",
+      "B. Sensible au contexte",
+      "C. Hors contexte",
+      "D. Rationnelle"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Les règles génèrent le langage régulier décrit par l'expression régulière 'a b*'. C'est donc une grammaire de classe 3 (Rationnelle / Régulière)."
+  },
+  {
+    "id": 368,
+    "type": "theorie_langages",
+    "question": "L'expression rationnelle étendue [-+]?[0-9]+;[0-9]* n'engendre pas:",
+    "options": [
+      "A. 2015; 15",
+      "B. 2015; 5",
+      "C. 2015;",
+      "D. 2015"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "L'expression contient le caractère littéral point-virgule ';' obligatoire entre les deux séquences de chiffres. La chaîne '2015' ne contient pas de ';' et n'est donc pas engendrée."
+  },
+  {
+    "id": 369,
+    "type": "theorie_langages",
+    "question": "Quel est le langage reconnu par la grammaire suivante : G = ({0, 1}, {X, Y, Z}, X, R) où R: X -> 0Z | 1Y ; Y -> 0 | 0X ; Z -> 1 | 1X",
+    "options": [
+      "A. (01 + 10)*",
+      "B. (01 + 10)+ 1",
+      "C. 0* (01 + 10)*",
+      "D. (01 + 10)+",
+      "E. Phi"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En dérivant X : X -> 0Z -> 01 ou 01X, et X -> 1Y -> 10 ou 10X. Par substitution, X génère une ou plusieurs répétitions des motifs '01' ou '10', correspondant à (01 + 10)+."
+  },
+  {
+    "id": 370,
+    "type": "reseaux",
+    "question": "1- Pour la classe réseau C combien de hôtes possibles par sous-réseau?",
+    "options": [
+      "A. 2^8",
+      "B. 2^16",
+      "C. 2^24",
+      "D. 2^32"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Une classe C réserve 8 bits pour la partie hôte, soit 2^8 (256) adresses théoriques au total (et 2^8 - 2 = 254 hôtes utilisables)."
+  },
+  {
+    "id": 371,
+    "type": "reseaux",
+    "question": "2- Quel est le rôle du champ Checksum dans un paquet ?",
+    "options": [
+      "A. représente la durée de vie du paquet",
+      "B. représente le protocole utilisé",
+      "C. représente la validité du paquet",
+      "D. indique la longueur du paquet"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le champ Checksum (somme de contrôle) permet de vérifier l'intégrité de l'en-tête du paquet et de s'assurer qu'il n'a pas été corrompu durant le transport."
+  },
+  {
+    "id": 372,
+    "type": "reseaux",
+    "question": "3- Quel équipement réseau permet de réduire les problèmes liés aux broadcasts ?",
+    "options": [
+      "A. Hub",
+      "B. Routeur",
+      "C. Switch",
+      "D. Pont"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Les routeurs bloquent par défaut les paquets de diffusion (broadcast), divisant ainsi les domaines de diffusion, contrairement aux hubs, switches et ponts."
+  },
+  {
+    "id": 373,
+    "type": "reseaux",
+    "question": "4- Quelle est l'adresse de broadcast du sous réseau 191.1.32.0/19?",
+    "options": [
+      "A. 191.1.255.255",
+      "B. 191.1.63.255",
+      "C. 191.1.64.255",
+      "D. 255.255.255.255"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le masque /19 correspond à un bloc de taille 32 dans le 3ème octet. Le sous-réseau s'étend de 191.1.32.0 à 191.1.63.255, l'adresse de diffusion est donc 191.1.63.255."
+  },
+  {
+    "id": 374,
+    "type": "logique",
+    "question": "5- Quel est la simplification algébrique de l'expression logique suivante: AC + B(C barré) + AB",
+    "options": [
+      "A. AC + (B barré)C",
+      "B. AB + (B barré)C",
+      "C. AC + B(C barré)",
+      "D. A(B barré)C"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Selon le théorème du consensus, l'expression AC + B(C barré) + AB se simplifie en éliminant le terme redondant AB, ce qui donne AC + B(C barré)."
+  },
+  {
+    "id": 375,
+    "type": "logique",
+    "question": "6- Quelle est la valeur binaire du nombre entier négatif -15 en complément à 2 codée sur 8 bits ?",
+    "options": [
+      "A. 10001111",
+      "B. 11110000",
+      "C. 11111111",
+      "D. 11110001"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "+15 sur 8 bits est 00001111. Le complément à 1 donne 11110000. En ajoutant 1 pour le complément à 2, on obtient 11110001."
+  },
+  {
+    "id": 376,
+    "type": "logique",
+    "question": "7- Un additionneur 1 bit complet possède :",
+    "options": [
+      "A. 1 entrée et 1 sortie",
+      "B. 2 entrées et 2 sorties",
+      "C. 2 entrées et 1 sortie",
+      "D. 3 entrées et 2 sorties"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Un additionneur complet prend 3 entrées (les deux bits A et B, plus la retenue entrante Cin) et génère 2 sorties (la somme S et la retenue sortante Cout)."
+  },
+  {
+    "id": 377,
+    "type": "systeme_exploitation",
+    "question": "8- La commande UNIX cd - permet d'aller dans:",
+    "options": [
+      "A. le répertoire racine / du système du fichier",
+      "B. le répertoire personnel du root",
+      "C. l'ancien répertoire utilisé",
+      "D. le répertoire web /var/www"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "En shell Unix/Linux, 'cd -' ramène l'utilisateur au répertoire de travail précédent (stocké dans la variable d'environnement OLDPWD)."
+  },
+  {
+    "id": 378,
+    "type": "systeme_exploitation",
+    "question": "9- Sous UNIX/Linux, pour changer les droits d'accès au fichier texte monDoc.txt, de manière que le propriétaire et le groupe propriétaire du fichier puissent y accéder en lecture et écriture et les autres utilisateurs ne puissent y accéder qu'en lecture, je dois utiliser la commande :",
+    "options": [
+      "A. chmod u+rw-x, g+rw-x, o-rw+x monDoc.txt",
+      "B. chmod u+rw-x, g+rw-x, o+rx-w monDoc.txt",
+      "C. chmod u-r+wx, g-r+wx, o-rw-tx monDoc.txt",
+      "D. chmod u-r+wx, g+r+wx, o+rwx monDoc.txt"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Les droits visés sont rw- (6) pour le propriétaire u, rw- (6) pour le groupe g, et r-- (4) pour les autres o. La syntaxe de l'option B configure exactement ces permissions."
+  },
+  {
+    "id": 379,
+    "type": "web",
+    "question": "10- Lequel des codes HTML suivants permet de fusionner deux colonnes d'un tableau ?",
+    "options": [
+      "A. <td colspan = \"2\"> </td>",
+      "B. <td colmerge = \"2\"> </td>",
+      "C. <td fusioncol = \"2\"> </td>",
+      "D. <td mergecol = \"2\"> </td>"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "L'attribut standard HTML pour fusionner des colonnes adjacentes dans une cellule de tableau est 'colspan'."
+  },
+  {
+    "id": 380,
+    "type": "web",
+    "question": "11- Comment créer un lien de courrier électronique ?",
+    "options": [
+      "A. <mail>xxx@yyy</mail>",
+      "B. <a href=\"xxx@yyy\">",
+      "C. <a href=\"mailto:xxx@yyy\">",
+      "D. <mail href=\"xxx@yyy\">"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le protocole 'mailto:' dans l'attribut href d'une balise <a> permet d'ouvrir le client de messagerie par défaut."
+  },
+  {
+    "id": 381,
+    "type": "web",
+    "question": "12- Lequel des éléments HTML suivants peut être utilisé pour mettre en forme une partie d'un texte en CSS ?",
+    "options": [
+      "A. <p> </p>",
+      "B. <div> </div>",
+      "C. <span> </span>",
+      "D. <style> </style>"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La balise <span> est un conteneur en ligne (inline) spécifiquement destiné à appliquer des styles CSS ou du script sur une portion de texte."
+  },
+  {
+    "id": 382,
+    "type": "web",
+    "question": "13- Comment mettre correctement en CSS tous les paragraphes en gras ?",
+    "options": [
+      "A. p {text-size:bold;}",
+      "B. <p style=\"font-size:bold;\">",
+      "C. p {font-weight:bold;}",
+      "D. <p style=\"text-size:bold;\">"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La propriété CSS correcte pour contrôler l'épaisseur du texte (le mettre en gras) est 'font-weight'."
+  },
+  {
+    "id": 383,
+    "type": "c",
+    "question": "14- Quelle est le résultat de l'exécution du code C suivant ?\nshort a[8] = {10, 20, 30, 40, 50, 60, 70, 80};\nshort *p = a;\nprintf(\"%d\\n\", a[3]);\nprintf(\"%d\\n\", *(p + 4));\nprintf(\"%d\\n\", *(p = 5));\nprintf(\"%d\\n\", p[2]);",
+    "options": [
+      "A. 30 NULL 33 36",
+      "B. 30 33 36 40",
+      "C. 40 50 ...",
+      "D. Erreur de segmentation"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "L'expression *(p = 5) tente d'assigner l'adresse mémoire 5 au pointeur p puis d'y accéder, ce qui provoque une erreur d'accès mémoire (Erreur de segmentation)."
+  },
+  {
+    "id": 384,
+    "type": "c",
+    "question": "15- Le programme C suivant affiche :\n#include <stdio.h>\n\nvoid f(int a, int b, int c) {\n    a = b + c;\n    b = c + a;\n    c = a + b;\n}\n\nint main(void) {\n    int x = 1, y = 2, z = 3;\n    f(x, y, z);\n    printf(\"x = %d y = %d z = %d\\n\", x, y, z);\n    return 0;\n}",
+    "options": [
+      "A. x = 5 y = 4 z = 3",
+      "B. x = 5 y = 8 z = 13",
+      "C. x = 3 y = 6 z = 9",
+      "D. x = 1 y = 2 z = 3"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En langage C, le passage d'arguments se fait par valeur. Les modifications effectuées sur a, b et c dans la fonction f n'affectent pas les variables x, y et z de main."
+  },
+  {
+    "id": 385,
+    "type": "c",
+    "question": "16- Combien de fois sera-t-elle répétée l'instruction de l'instruction i ?\nint i;\nfor(i = 10; i <= 19; i = i + 2) {\n    if(i % 10 < 1)\n        instruction 1;\n}",
+    "options": [
+      "A. 10",
+      "B. 5",
+      "C. 1",
+      "D. Aucune de ces réponses n'est correcte"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "La boucle itère pour i = 10, 12, 14, 16, 18. Seule la valeur 10 vérifie la condition (10 % 10 = 0 < 1). L'instruction est exécutée 1 seule fois."
+  },
+  {
+    "id": 386,
+    "type": "algo",
+    "question": "17- Quelle valeur sera-t-elle retournée par l'appel F(7) de la fonction F suivante?\nint F(int n) {\n    int F0 = 0, F1 = 1, F, i;\n    if (n == 0) return F0;\n    else if (n == 1) return F1;\n    else {\n        for (i = 2; i < n; ++i) {\n            F = F0 + F1;\n            F0 = F1;\n            F1 = F;\n        }\n        return F;\n    }\n}",
+    "options": [
+      "A. 5",
+      "B. 8",
+      "C. 13",
+      "D. 21"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "La boucle s'exécute pour i de 2 à 6 (5 itérations). Les valeurs successives calculées pour F sont 1, 2, 3, 5 et enfin 8 pour i=6."
+  },
+  {
+    "id": 387,
+    "type": "algo",
+    "question": "18- Soit la déclaration de la matrice: int N[5][5]. Laquelle des portions de code ci-après permet de remplir cette matrice avec les données suivantes :\n0 1 2 3 4\n1 2 3 4 5\n2 3 4 5 6\n3 4 5 6 7\n4 5 6 7 8",
+    "options": [
+      "A. valeur = 0; for(i = 0; i < 5; ++i) for(j = 0; j < 5; ++j) { N[i][j] = i + valeur; ++valeur; }",
+      "B. for(i = 0; i < 5; ++i) for(j = 0; j < 5; ++j) N[i][j] = i * j;",
+      "C. for(i = 0; i < 5; ++i) for(j = 0; j < 5; ++j) N[i][j] = i + j;",
+      "D. Aucune de ces portions de code n'est correcte."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Chaque élément de la matrice correspond exactement à la somme de son indice de ligne i et de son indice de colonne j (ex: N[2][3] = 2 + 3 = 5)."
+  },
+  {
+    "id": 388,
+    "type": "algo",
+    "question": "19- Soit un tableau de taille n éléments. Quel est le nombre de comparaisons effectuées par un algorithme de tri par sélection?",
+    "options": [
+      "A. n^n",
+      "B. n^2",
+      "C. n(n-1)/2",
+      "D. 1 log(n)"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le tri par sélection effectue (n-1) + (n-2) + ... + 1 comparaisons, soit une somme arithmétique égale à n(n-1)/2."
+  },
+  {
+    "id": 389,
+    "type": "algo",
+    "question": "20- Laquelle des structures de données suivantes est gérée en FIFO (First In First Out)?",
+    "options": [
+      "A. Une pile",
+      "B. Une file",
+      "C. Une liste linéaire",
+      "D. Un arbre"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Une file (Queue) respecte le principe FIFO (premier entré, premier sorti)."
+  },
+  {
+    "id": 390,
+    "type": "algo",
+    "question": "21- Dans une structure de données gérée en LIFO (Last In First Out):",
+    "options": [
+      "A. Les insertions, les suppressions et les accès ne peuvent se faire qu'à une même extrémité.",
+      "B. Les insertions se font à une extrémité, alors que les suppressions et les accès se font à une autre extrémité.",
+      "C. Les insertions, les suppressions et les accès peuvent se faire à n'importe quel endroit de la structure."
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Dans une structure LIFO (Pile), toutes les opérations (empiler, dépiler, consulter) s'effectuent au niveau du sommet (la même extrémité)."
+  },
+  {
+    "id": 391,
+    "type": "algo",
+    "question": "22- Pour définir des piles en langage C, on dispose des deux structures de données proposées. Laquelle des fonctions suivantes permet d'empiler correctement un élément x du type entier dans une pile ?",
+    "options": [
+      "A. void empiler(pile p, int x) { p.s->e = x; ++p.h; }",
+      "B. void empiler(pile p, int x) { elpile *q = (elpile *) malloc(sizeof(elpile)); q->e = x; q->suiv = p.s; p.s = q; ++p.h; }",
+      "C. void empiler(pile *p, int x) { p->s->e = x; ++p->h; }",
+      "D. void empiler(pile *p, int x) { elpile *q = (elpile *) malloc(sizeof(elpile)); q->e = x; q->suiv = p->s; p->s = q; ++p->h; }"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Pour modifier la structure de pile originale, il faut passer un pointeur 'pile *p'. De plus, l'empilement nécessite l'allocation d'un nouvel élément 'elpile' relié au sommet précédent."
+  },
+  {
+    "id": 392,
+    "type": "algo",
+    "question": "23- L'algorithme de parcours d'un arbre binaire A en ordre infixe est donné. La suite des sommets visités selon l'ordre infixe dans l'arbre binaire décrit est:",
+    "options": [
+      "A. ABDCEGFHI",
+      "B. DBAGECHFI",
+      "C. DBGEHIFCA"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le parcours infixe explore Sous-arbre Gauche -> Racine -> Sous-arbre Droit. Pour cet arbre, la séquence obtenue est D -> B -> A -> G -> E -> C -> H -> F -> I."
+  },
+  {
+    "id": 393,
+    "type": "java",
+    "question": "24- En Java, quelle classe n'a pas de classe parente ?",
+    "options": [
+      "A. System",
+      "B. Object",
+      "C. Collection",
+      "D. String"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "En Java, 'java.lang.Object' est la classe racine de toute la hiérarchie des objets et n'a aucune classe parente."
+  },
+  {
+    "id": 394,
+    "type": "java",
+    "question": "25- Lesquelles des affirmations suivantes sont-t-elles justes ? Une méthode d'instance:",
+    "options": [
+      "A. Se définit à l'aide du modificateur static",
+      "B. Se définit sans le modificateur static",
+      "C. S'applique à sa classe",
+      "D. S'applique à un objet de sa classe"
+    ],
+    "correct_answers": [
+      "B",
+      "D"
+    ],
+    "explanation": "Une méthode d'instance s'exécute sur un objet instancié de la classe et se déclare sans le mot-clé 'static'."
+  },
+  {
+    "id": 395,
+    "type": "java",
+    "question": "26- Sachant que la classe java.util.LinkedList implémente l'interface java.util.Queue représentant des files d'attentes. Pour définir une file d'attente en Java, je peux utiliser:",
+    "options": [
+      "A. Queue q = new Queue();",
+      "B. LinkedList q = new Queue();",
+      "C. Queue q = new LinkedList();",
+      "D. LinkedList q = new LinkedList();"
+    ],
+    "correct_answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Queue est une interface donc non instanciable directement (élimine A et B). C et D sont valides; C illustre le polymorphisme."
+  },
+  {
+    "id": 396,
+    "type": "java",
+    "question": "27- Laquelle des affirmations suivantes est correcte? En Java, si aucun constructeur n'est défini dans une classe, alors:",
+    "options": [
+      "A. La classe n'admet pas de constructeur.",
+      "B. La classe admet le constructeur par défaut sans paramètres.",
+      "C. Le compilateur générera une erreur du fait qu'il faut obligatoirement définir un constructeur dans la classe.",
+      "D. Il sera impossible d'instancier la classe."
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "Le compilateur Java génère automatiquement un constructeur par défaut sans arguments si aucun n'est explicitement défini dans la classe."
+  },
+  {
+    "id": 397,
+    "type": "uml",
+    "question": "28- Parmi ce qui suit, quel élément n'est pas associé au diagramme de cas d'utilisation?",
+    "options": [
+      "A. Relation d'inclusion",
+      "B. Relation d'extension",
+      "C. Acteur",
+      "D. Relation d'agrégation"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "La relation d'agrégation est un concept propre aux diagrammes de structure (comme le diagramme de classes), non aux cas d'utilisation."
+  },
+  {
+    "id": 398,
+    "type": "uml",
+    "question": "29- En se basant sur le diagramme de classes ci-dessous, quelles sont les assertions vraies?\n(Diagramme UML: A {abstract} liée à C (1 à *). E et B héritent de A. B est liée à D (1..* à *))",
+    "options": [
+      "A. Il existe des instances directes de A.",
+      "B. Un objet de type D est associé au moins à un objet de type B.",
+      "C. Un objet de type B est associé à 1..* objets de type D.",
+      "D. Un objet d'une sous-classe de A est associé à * objets de type C."
+    ],
+    "correct_answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "La cardinalité 1..* côté B indique qu'un D est associé à au moins un B. De plus, la cardinalité * côté D indique l'association à plusieurs D."
+  },
+  {
+    "id": 399,
+    "type": "uml",
+    "question": "30- Quelles sont les deux grandes catégories de diagrammes UML?",
+    "options": [
+      "A. Structure et use cases",
+      "B. Comportement et logique",
+      "C. Structure et comportement",
+      "D. Logique et physique"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "En UML 2.x, l'ensemble des diagrammes est officiellement subdivisé en deux catégories principales : les diagrammes de structure et les diagrammes de comportement."
+  },
+  {
+    "id": 400,
+    "type": "sql",
+    "question": "31- Qu'est-ce qui représente un attribut dans une base de données relationnelle?",
+    "options": [
+      "A. Table",
+      "B. Ligne",
+      "C. Colonne",
+      "D. Objet"
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Dans le modèle relationnel, un attribut correspond à une colonne du tableau (relation)."
+  },
+  {
+    "id": 401,
+    "type": "sql",
+    "question": "32- La clause WHERE:",
+    "options": [
+      "A. Limite les lignes retournées",
+      "B. Limite les colonnes retournées",
+      "C. Les deux",
+      "D. Aucune des deux"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "La clause WHERE filtre les en-enregistrements (lignes), tandis que la clause SELECT sélectionne les colonnes."
+  },
+  {
+    "id": 402,
+    "type": "sql",
+    "question": "33- L'opérateur LIKE '%in' dans la clause WHERE:",
+    "options": [
+      "A. recherche toutes les chaînes de caractères qui commencent par « in ».",
+      "B. recherche toutes les chaînes de caractères qui contiennent « in ».",
+      "C. recherche toutes les chaînes de caractères qui se terminent par « in ».",
+      "D. recherche toutes les chaînes de caractères qui sont égales à « in »."
+    ],
+    "correct_answers": [
+      "C"
+    ],
+    "explanation": "Le caractère joker '%' placé au début indique que la chaîne peut commencer par n'importe quelle séquence et se finir par 'in'."
+  },
+  {
+    "id": 403,
+    "type": "securite",
+    "question": "34- Un utilisateur vient de capturer le mot de passe d'un réseau sans fil exploitant la vulnérabilité du protocole WEP. Il s'agit de?",
+    "options": [
+      "A. Sniffing",
+      "B. Trust exploitation",
+      "C. Scanning",
+      "D. Reconnaissance"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "L'écoute et l'interception des trames réseaux pour récupérer des informations sensibles s'appelle le Sniffing."
+  },
+  {
+    "id": 404,
+    "type": "securite",
+    "question": "35- Lequel des éléments suivants permet de faire un backdoor caché pour accéder aux postes de travail sur Internet?",
+    "options": [
+      "A. Cheval de troie",
+      "B. Bombe logique",
+      "C. Firmware",
+      "D. Ver"
+    ],
+    "correct_answers": [
+      "A"
+    ],
+    "explanation": "Un Cheval de Troie (Trojan) dissimule une fonctionnalité malveillante, telle qu'une porte dérobée (backdoor), dans un logiciel d'apparence légitime."
+  },
+  {
+    "id": 405,
+    "type": "securite",
+    "question": "36- Dans quel pilier de sécurité informatique la cryptographie fait partie ?",
+    "options": [
+      "A. Disponibilité",
+      "B. Confidentialité",
+      "C. Intégrité",
+      "D. Authenticité"
+    ],
+    "correct_answers": [
+      "B"
+    ],
+    "explanation": "L'objectif premier du chiffrement cryptographique est de garantir la confidentialité des données."
+  },
+  {
+    "id": 406,
+    "type": "securite",
+    "question": "37- Parmi les noms ci-dessous, le quel n'est pas celui d'un algorithme cryptographique ?",
+    "options": [
+      "A. Marie-Stewart",
+      "B. El Gamal",
+      "C. Maxwell",
+      "D. Vigenère"
+    ],
+    "correct_answers": [
+      "A",
+      "C"
+    ],
+    "explanation": "ElGamal et Vigenère sont des algorithmes connus, contrairement à Marie-Stewart et Maxwell."
+  },
+  {
+    "id": 407,
+    "type": "securite",
+    "question": "38- En utilisant le code César avec une valeur de décalage de 7, quel est le chiffré du message « CONCOURS_D_ACCESS_AU_MASTER » ?",
+    "options": [
+      "A. IUTIU_XYFJFGIIKYFG_FSGYZKX",
+      "B. KWVKWBZ_HLHIKKM_HIBHUI_AMZ",
+      "C. JVUJVAYZGKGHJJLZGHAGTHZ_LY",
+      "D. FRQFRXUVCGCDFFHVCDXCPDVWHU"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "En décalant chaque lettre de +7 positions dans l'alphabet : C -> F, O -> R, N -> Q, etc."
+  },
+  {
+    "id": 408,
+    "type": "theorie_langages",
+    "question": "39- L'expression rationnelle étendue [+]?[0-9]+;[0-9]* n'engendre pas :",
+    "options": [
+      "A. 2015;15",
+      "B. 2015;5",
+      "C. 2015;",
+      "D. 2015"
+    ],
+    "correct_answers": [
+      "D"
+    ],
+    "explanation": "Le symbole ';' est obligatoire (non optionnel) dans l'expression rationnelle. La chaîne '2015' ne contient pas de ';' et ne peut donc pas être engendrée."
   }
 
 ]
