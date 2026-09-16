@@ -1,111 +1,82 @@
 # M2I FS Tétouan — QCM Preparation System
 
-A Python + LangGraph application for preparing the **Master M2I (Informatique) entrance exam at FS Tétouan** through randomized QCM exams generated from a curated JSON database of questions and verified correct answers.
+A Python, LangGraph, Streamlit, and Gemini-based application for preparing an Informatique Master's entrance exam through a structured QCM question bank.
 
-The application is designed so that the **question database remains the source of truth**. The LLM is optional and is used mainly for explanations and personalized feedback, not for deciding which answer is correct.
+The application uses a JSON file as the source of truth for questions, answer choices, correct answers, question types, and explanations. LangGraph orchestrates exam generation and correction, while Gemini is called on demand to provide deeper explanations for individual questions.
 
----
+## Features
 
-## 1. Project Goals
+- QCM generation from a local JSON question bank.
+- Question classification by `type`.
+- Full mock exams using a proportional distribution of available question types.
+- User selection of one or several question types.
+- Single-answer and multiple-answer questions.
+- Randomized question selection.
+- Deterministic grading using the answers stored in JSON.
+- Score and percentage calculation.
+- Correction review for every question.
+- Display of the student's answer, correct answer, and database explanation.
+- Per-type performance statistics.
+- Optional Gemini deep explanation for individual questions.
+- AI explanations are generated only when the user clicks the explanation button.
 
-The application should allow a student to:
-
-- Practice individual subjects.
-- Generate complete mock exams.
-- Generate randomized QCMs from an existing question bank.
-- Answer questions through a Streamlit interface.
-- Automatically calculate the score.
-- Review wrong answers.
-- Get AI explanations for mistakes.
-- Track weak subjects/topics.
-- Generate future practice exams focused on weaknesses.
-
-The main principle is:
-
-> **Questions and correct answers come from the JSON database. Python performs deterministic selection and correction. LangGraph orchestrates the workflow. Gemini is used only where an LLM adds value.**
-
----
-
-## 2. High-Level Architecture
+## Architecture
 
 ```text
-                        questions.json
+                         questions.json
                               |
                               v
-                    +-------------------+
-                    | Load Questions    |
-                    +---------+---------+
+                    +--------------------+
+                    |   Load Questions   |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    | Select Questions  |
-                    | Random / Subject  |
-                    | / Difficulty      |
-                    +---------+---------+
+                    +--------------------+
+                    | Filter / Select    |
+                    | Question Types     |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    | Validate Exam     |
-                    +---------+---------+
+                    +--------------------+
+                    | Proportional Exam  |
+                    | Distribution       |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    |    Student        |
-                    |    takes QCM      |
-                    +---------+---------+
+                    +--------------------+
+                    |      Streamlit     |
+                    |      QCM UI        |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    | Collect Answers   |
-                    +---------+---------+
+                    +--------------------+
+                    | Student Answers    |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    | Correct Exam      |
-                    | Using JSON        |
-                    +---------+---------+
+                    +--------------------+
+                    | LangGraph          |
+                    | Correction         |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    | Calculate Score   |
-                    +---------+---------+
+                    +--------------------+
+                    | Score + Correction |
+                    +---------+----------+
                               |
                               v
-                    +-------------------+
-                    | Analyze Results   |
-                    +---------+---------+
-                              |
-                              v
-                    +-------------------+
-                    | Gemini (optional) |
-                    | Explain Mistakes |
-                    +---------+---------+
-                              |
-                              v
-                           Results
+                 +---------------------------+
+                 | Gemini - optional         |
+                 | Deep explanation          |
+                 +---------------------------+
 ```
 
----
-
-## 3. Technologies
-
-- **Python 3.11+**
-- **LangGraph** — workflow orchestration
-- **LangChain** — LLM integration
-- **Google Gemini** — optional AI explanations and feedback
-- **Streamlit** — web interface
-- **JSON** — question database
-- **Pydantic / TypedDict** — structured state and validation
-- **python-dotenv** — environment variables
-
-No vector database or RAG system is required for the first version.
-
----
-
-## 4. Recommended Project Structure
+## Project Structure
 
 ```text
-m2i_preparation/
+projet fin stage/
+│
+├── app.py
 │
 ├── data/
 │   └── questions.json
@@ -114,158 +85,171 @@ m2i_preparation/
 │   ├── __init__.py
 │   ├── models.py
 │   ├── loader.py
-│   ├── exam.py
 │   ├── graph.py
 │   └── llm.py
 │
-├── app.py
-├── requirements.txt
 ├── .env
-├── .gitignore
+├── requirements.txt
 └── README.md
 ```
 
----
+`app.py` should be located in the project root, not inside `src`.
 
-## 5. Question Database
+## Technologies
 
-The main database is `data/questions.json`.
+- Python
+- LangGraph
+- LangChain
+- Google Gemini
+- Streamlit
+- JSON
+- python-dotenv
 
-Each question should contain:
+## Question Database
 
-- `id`
-- `subject`
-- `topic`
-- `difficulty`
-- `question`
-- `choices`
-- `correct_answer`
-- `explanation`
+The application expects:
 
-Example:
-
-```json
-[
-  {
-    "id": 1,
-    "subject": "Algorithmique",
-    "topic": "Complexité algorithmique",
-    "difficulty": "medium",
-    "question": "Quelle est la complexité de la recherche binaire ?",
-    "choices": {
-      "A": "O(n)",
-      "B": "O(log n)",
-      "C": "O(n²)",
-      "D": "O(1)"
-    },
-    "correct_answer": "B",
-    "explanation": "La recherche binaire divise l'espace de recherche par deux à chaque étape."
-  },
-  {
-    "id": 2,
-    "subject": "Bases de données",
-    "topic": "SQL",
-    "difficulty": "easy",
-    "question": "Que signifie SQL ?",
-    "choices": {
-      "A": "Structured Query Language",
-      "B": "Simple Query Language",
-      "C": "System Query Language",
-      "D": "Sequential Query Language"
-    },
-    "correct_answer": "A",
-    "explanation": "SQL signifie Structured Query Language."
-  }
-]
+```text
+data/questions.json
 ```
 
-### Important
+The JSON is an array of question objects.
 
-`correct_answer` must be stored explicitly.
+Each question has this structure:
+
+```json
+{
+  "id": 1,
+  "type": "reseaux",
+  "question": "L’adresse MAC est :",
+  "options": [
+    "A. Une adresse logique de chaque carte réseau",
+    "B. Une adresse dynamique et variable de chaque carte réseau",
+    "C. Une adresse fixe et unique de chaque carte réseau"
+  ],
+  "correct_answers": [
+    "C"
+  ],
+  "explanation": "L'adresse MAC est l'adresse physique matérielle gravée par le fabricant, unique et constante pour chaque interface réseau."
+}
+```
+
+### Fields
+
+| Field | Description |
+|---|---|
+| `id` | Unique question identifier |
+| `type` | Subject/category of the question |
+| `question` | Question text |
+| `options` | List of answer choices |
+| `correct_answers` | One or more correct answer letters |
+| `explanation` | Explanation stored with the question |
+
+## Question Types
+
+The application reads the available types directly from the JSON file.
 
 For example:
 
-```json
-"correct_answer": "B"
+```text
+reseaux
+ro
+algo
+c
+java
+bdd
+culture_g
 ```
 
-The application should compare the student's answer directly with this value.
+New types can be added simply by adding questions with a new value in the `type` field.
 
-The LLM must **not** be responsible for grading the QCM.
+No code change is required for the type list.
 
----
+## Single-Answer Questions
 
-## 6. Suggested Subjects
+A question with one correct answer:
 
-The question bank can be organized around the computer-science domains relevant to the M2I preparation, for example:
+```json
+"correct_answers": [
+  "C"
+]
+```
+
+The interface uses a radio selection.
+
+## Multiple-Answer Questions
+
+A question with multiple correct answers:
+
+```json
+"correct_answers": [
+  "B",
+  "D"
+]
+```
+
+The interface automatically uses a multiple-selection control.
+
+The student must select exactly the correct combination.
+
+The application compares the complete answer sets when grading.
+
+# Exam Generation
+
+## All Types
+
+The user can choose:
 
 ```text
-Architecture des ordinateurs
-Algorithmique
-Structures de données
-Langage C
-Python
-C++
+Tous les types
+```
+
+The application uses questions from all available types.
+
+The number of questions from each type is distributed proportionally according to how many questions are available in the JSON database.
+
+For example:
+
+```text
+Java       16 questions
+Réseaux    10 questions
+C            5 questions
+BDD          2 questions
+```
+
+The generated exam follows those proportions as closely as possible.
+
+## Selected Types
+
+The user can choose:
+
+```text
+Choisir les types
+```
+
+and select:
+
+```text
 Java
-Programmation orientée objet
-Bases de données
-SQL
-Systèmes d'information
-UML
-Systèmes d'exploitation
 Réseaux
-Développement Web
-IoT
-Compilation
-Programmation linéaire
-Programmation en nombres entiers
+BDD
 ```
 
-The exact question distribution should be based on the material and past exams available to you.
+Only those types are considered.
 
----
+The proportional distribution is then recalculated using only the selected types.
 
-## 7. LangGraph State
+## Randomization
 
-The workflow can use a state similar to:
+Questions are selected randomly using Python.
 
-```python
-from typing import TypedDict
+The final exam is shuffled after questions are selected.
 
+This means two generated exams can contain different combinations of questions.
 
-class ExamState(TypedDict):
+# LangGraph Workflow
 
-    # Configuration
-    exam_name: str
-    number_of_questions: int
-    subjects: list[str]
-
-    # Question bank
-    all_questions: list[dict]
-
-    # Generated exam
-    exam: list[dict]
-
-    # Student progress
-    current_question: int
-    user_answers: dict[int, str]
-
-    # Results
-    score: int
-    results: list[dict]
-
-    # Learning
-    weak_topics: list[str]
-
-    # Optional AI feedback
-    ai_feedback: str
-```
-
----
-
-## 8. LangGraph Workflow
-
-### Exam generation
+## Exam Generation Graph
 
 ```text
 START
@@ -279,13 +263,27 @@ select_questions
   v
 validate_exam
   |
-  +---- invalid ----> select_questions
-  |
   v
 END
 ```
 
-### Exam correction
+### `load_questions`
+
+Loads the JSON database.
+
+### `select_questions`
+
+- filters by the selected types;
+- counts questions by type;
+- calculates the proportional allocation;
+- randomly selects questions;
+- shuffles the final exam.
+
+### `validate_exam`
+
+Checks the requested number of questions and duplicate question IDs.
+
+# Correction Graph
 
 ```text
 START
@@ -294,410 +292,141 @@ START
 correct_exam
   |
   v
-calculate_score
-  |
-  v
-analyze_results
-  |
-  v
-optional_ai_feedback
-  |
-  v
 END
 ```
 
-### Complete conceptual workflow
+Correction is deterministic.
 
-```text
-                         START
-                           |
-                           v
-                    load_questions
-                           |
-                           v
-                    select_questions
-                           |
-                           v
-                     validate_exam
-                       /       \
-                 invalid       valid
-                   |             |
-                   +----<--------+
-                                 |
-                                 v
-                           take exam
-                                 |
-                                 v
-                         collect answers
-                                 |
-                                 v
-                           correct_exam
-                                 |
-                                 v
-                         calculate_score
-                                 |
-                                 v
-                        analyze_results
-                                 |
-                                 v
-                       Gemini (optional)
-                                 |
-                                 v
-                                END
-```
-
----
-
-## 9. Deterministic vs LLM Tasks
-
-The project should separate tasks that require an LLM from tasks that should remain deterministic.
-
-### Deterministic Python tasks
-
-These should not use an API:
-
-```text
-Load JSON
-Select questions
-Randomize questions
-Randomize answer order (if implemented)
-Check answers
-Calculate score
-Identify correct/wrong answers
-Calculate percentages
-Track question history
-Track weak subjects
-```
-
-### Gemini / LLM tasks
-
-These are optional:
-
-```text
-Explain a wrong answer
-Explain a difficult concept
-Summarize weak topics
-Generate personalized study advice
-Answer follow-up questions about a topic
-```
-
-This design keeps the system reliable and reduces API usage.
-
----
-
-## 10. API Usage
-
-The core QCM application can run with:
-
-```text
-0 API calls
-```
-
-for:
-
-- loading questions
-- generating a randomized exam
-- displaying questions
-- collecting answers
-- correcting answers
-- calculating the score
-
-If Gemini is enabled, the recommended design is to make **one batched API call after the exam** for explanations.
-
-Example:
-
-```text
-30-question exam
-      |
-      v
-Student answers
-      |
-      v
-Python identifies 6 mistakes
-      |
-      v
-1 Gemini request containing the 6 mistakes
-      |
-      v
-Explanations
-```
-
-So a complete exam can typically use:
-
-```text
-Core QCM:        0 API calls
-AI explanations: 1 API call
-```
-
-A separate follow-up chat question would use another API call.
-
----
-
-## 11. Why the LLM Should Not Generate the Correct Answers
-
-The database contains verified answers.
-
-For example:
-
-```json
-{
-  "question": "What is the time complexity of binary search?",
-  "correct_answer": "B"
-}
-```
-
-The application should do:
+The application compares:
 
 ```python
-student_answer == question["correct_answer"]
+student_answers == correct_answers
 ```
 
-rather than:
+It does not ask an LLM to decide which answer is correct.
+
+This makes the local question bank the authoritative answer key.
+
+# Correction Interface
+
+After submitting the exam, the application displays:
 
 ```text
-Student answer
-      |
-      v
-LLM
-      |
-      v
-"Probably B"
+Score: 24/30
+Percentage: 80.0%
+Errors: 6
 ```
 
-This prevents the model from introducing grading errors or hallucinating answers.
-
----
-
-## 12. Random Exam Generation
-
-Suppose the database contains:
+Each question can be expanded with:
 
 ```text
-1000 questions
+👁️ Voir la question
 ```
 
-The user requests:
+Inside the correction the user sees:
 
 ```text
-30 questions
-```
+Question
+Type
 
-The program selects 30 questions randomly.
-
-Example:
-
-```text
-Exam 1
-Q12
-Q47
-Q81
-Q102
-Q205
+🔵 Votre réponse
 ...
 
-Exam 2
-Q5
-Q31
-Q88
-Q154
-Q202
+🟢 Réponse correcte
+...
+
+💡 Explication de la base
 ...
 ```
 
-Each attempt can therefore produce a different exam.
+The application converts answer letters such as `B` back to the full option text.
 
----
+# Gemini Deep Explanation
 
-## 13. Subject-Based Exams
+Gemini is optional.
 
-The application should support:
+It is called only when the user clicks:
 
 ```text
-Subject:
-    Algorithmique
-
-Number of questions:
-    20
+🔎 Expliquer cette question en profondeur
 ```
 
-and then retrieve only:
+The request contains the question, question type, all options, student's answer, correct answer from the database, and database explanation.
+
+The prompt instructs Gemini to treat the database answer as the reference.
+
+Gemini explains:
+
+1. What the question is asking.
+2. Every answer choice.
+3. Why the correct answer is correct.
+4. Why the student's answer is correct or incorrect.
+5. Important concepts to memorize.
+6. A practical example.
+7. A mini verification question.
+
+# API Usage
+
+Normal QCM operation does not require Gemini:
+
+```text
+Load JSON                 → 0 API calls
+Generate exam             → 0 API calls
+Display questions         → 0 API calls
+Correct exam              → 0 API calls
+Calculate score           → 0 API calls
+Show stored explanation   → 0 API calls
+```
+
+Gemini is called only when the user requests an in-depth explanation:
+
+```text
+Click "Explain in depth"
+        |
+        v
+1 Gemini API request
+```
+
+Each question can therefore be explained independently.
+
+# Gemini Response Handling
+
+Depending on the installed Gemini/LangChain version, `response.content` may be either a string or structured content such as:
 
 ```python
-question["subject"] == "Algorithmique"
+[
+    {
+        "type": "text",
+        "text": "..."
+    }
+]
 ```
 
-Example interface:
+`src/llm.py` extracts only the `text` value from structured content so the Streamlit interface displays the explanation itself rather than the raw response structure.
 
-```text
-+--------------------------------------+
-| M2I FS Tétouan Preparation           |
-+--------------------------------------+
-| Subject: [ Algorithmique          ]  |
-|                                      |
-| Questions: [ 20 ]                    |
-|                                      |
-| Difficulty: [ Mixed              ]  |
-|                                      |
-|           [ START EXAM ]             |
-+--------------------------------------+
-```
+# Environment Setup
 
----
+## 1. Create a virtual environment
 
-## 14. Full Mock Exam
+Windows:
 
-A future version can generate a mixed exam.
-
-Example:
-
-```text
-M2I Mock Exam
-30 questions
-
-Algorithmique          5
-Python                 3
-C                      3
-Bases de données       4
-Réseaux                3
-Systèmes d'exploitation 3
-Java / C++              3
-Web                     2
-Architecture            2
-UML                     1
-Compilation              1
-```
-
-The exact distribution can later be configurable.
-
----
-
-## 15. Adaptive Preparation
-
-A later version can store the student's results.
-
-Example:
-
-```text
-Student performance
-
-Algorithmique       85%
-Python              80%
-SQL                 72%
-Réseaux             45%
-OS                  50%
-```
-
-The application can identify:
-
-```text
-Weak topics:
-- Réseaux
-- Systèmes d'exploitation
-```
-
-Then the next exam can focus more on those topics.
-
-Example:
-
-```text
-Next Exam
-------------------------------
-Algorithmique       2 questions
-Python              3 questions
-SQL                 5 questions
-Réseaux            10 questions
-OS                  10 questions
-```
-
-This turns the project into an adaptive learning system.
-
----
-
-## 16. Streamlit Interface
-
-The final application can have several modes:
-
-```text
-M2I FS Tétouan Preparation
---------------------------------
-
-[ Full Mock Exam ]
-[ Subject Practice ]
-[ Random QCM ]
-[ Weak Topics ]
-[ Review Mistakes ]
-```
-
-### QCM screen
-
-```text
-Question 7 / 30
-
-What is a primary key?
-
-A. A duplicated value
-B. A unique identifier
-C. A foreign table
-D. An SQL command
-
-( ) A
-( ) B
-( ) C
-( ) D
-
-[ Previous ]     [ Next ]
-```
-
-### Results screen
-
-```text
-RESULTS
-
-Score: 24 / 30
-Percentage: 80%
-
-Correct: 24
-Wrong:   6
-```
-
-Then:
-
-```text
-Question 7
-
-Your answer:
-C
-
-Correct answer:
-B
-
-Explanation:
-...
-```
-
----
-
-## 17. Installation
-
-Create a virtual environment:
-
-```bash
+```powershell
 python -m venv .venv
 ```
 
-Activate it on Windows:
+Activate:
 
-```bash
-.venv\Scripts\activate
+```powershell
+.venv\\Scripts\\activate
 ```
 
-Install dependencies:
+## 2. Install dependencies
 
-```bash
+```powershell
 pip install -r requirements.txt
 ```
 
-Example `requirements.txt`:
+Recommended `requirements.txt`:
 
 ```text
 langgraph
@@ -705,30 +434,25 @@ langchain
 langchain-google-genai
 streamlit
 python-dotenv
-pydantic
 ```
 
----
+# Gemini API Key
 
-## 18. Environment Variables
+Create:
 
-Create a `.env` file:
+```text
+.env
+```
+
+and add:
 
 ```env
-GEMINI_API_KEY=your_api_key_here
-```
-
-Load it in Python:
-
-```python
-from dotenv import load_dotenv
-
-load_dotenv()
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
 ```
 
 Do not commit `.env` to Git.
 
-Add this to `.gitignore`:
+Recommended `.gitignore`:
 
 ```text
 .env
@@ -737,100 +461,193 @@ __pycache__/
 *.pyc
 ```
 
----
+# Run the Application
 
-## 19. Running the Application
+Open PowerShell in the project root:
 
-Run:
+```powershell
+cd "C:\\Users\\oweis\\Desktop\\projet fin stage"
+```
 
-```bash
+Start Streamlit:
+
+```powershell
 streamlit run app.py
 ```
 
-Then open the local Streamlit URL shown in the terminal.
+Do not run:
 
----
-
-## 20. Development Roadmap
-
-### Phase 1 — Question Database
-
-- Create `questions.json`
-- Validate the JSON structure
-- Load questions with Python
-- Filter by subject
-- Randomly select questions
-
-### Phase 2 — QCM
-
-- Create exam
-- Display questions
-- Collect answers
-- Correct automatically
-- Calculate score
-
-### Phase 3 — LangGraph
-
-- Create `ExamState`
-- Implement nodes
-- Add conditional edges
-- Compile the graph
-
-### Phase 4 — Streamlit
-
-- Build exam configuration
-- Build QCM interface
-- Add results page
-- Add mistake review
-
-### Phase 5 — Gemini
-
-- Explain wrong answers
-- Generate personalized feedback
-- Identify weak topics
-
-### Phase 6 — Adaptive Learning
-
-- Store exam history
-- Track performance by subject/topic
-- Prioritize weak topics
-- Generate personalized exams
-
----
-
-## 21. Core Design Principle
-
-The final architecture should remain:
-
-```text
-                JSON DATABASE
-                     |
-                     v
-              Python / LangGraph
-                     |
-          +----------+----------+
-          |                     |
-          v                     v
-      QCM generation         Correction
-          |                     |
-          +----------+----------+
-                     |
-                     v
-                 Results
-                     |
-                     v
-              Gemini (optional)
-                     |
-                     v
-               Explanations
+```powershell
+streamlit run src\\app.py
 ```
 
-The **JSON question bank is the source of truth**.
+because `app.py` belongs in the project root.
 
-LangGraph orchestrates the process.
+# Troubleshooting
 
-Python handles deterministic logic.
+## `ModuleNotFoundError: No module named 'src'`
 
-Gemini adds intelligence where it is useful.
+Make sure:
 
-Streamlit provides the student interface.
+```text
+projet fin stage/
+├── app.py
+└── src/
+    ├── __init__.py
+    ├── graph.py
+    ├── loader.py
+    ├── models.py
+    └── llm.py
+```
+
+Then run:
+
+```powershell
+cd "C:\\Users\\oweis\\Desktop\\projet fin stage"
+streamlit run app.py
+```
+
+## `ImportError: cannot import name 'load_questions'`
+
+Make sure `src/loader.py` defines:
+
+```python
+def load_questions():
+    ...
+```
+
+and `src/graph.py` imports:
+
+```python
+from .loader import load_questions
+```
+
+## Gemini `404 NOT_FOUND`
+
+The Gemini model identifier may depend on availability associated with the API/account being used.
+
+The current project is configured around:
+
+```python
+model="gemini-3.6-flash"
+```
+
+If the API reports that a model is unavailable, update the model identifier in `src/llm.py` to one currently available to the API account.
+
+## Gemini API Key Error
+
+Check that `.env` contains:
+
+```env
+GEMINI_API_KEY=YOUR_GEMINI_API_KEY
+```
+
+and that the application calls:
+
+```python
+load_dotenv()
+```
+
+before reading the environment variable.
+
+# Design Principles
+
+## JSON is the source of truth
+
+The question database provides the question, options, correct answers, explanation, and type.
+
+The LLM does not replace these values.
+
+## Deterministic grading
+
+Python/LangGraph checks answers against:
+
+```json
+"correct_answers": [...]
+```
+
+This avoids letting an LLM decide whether a student's answer is correct.
+
+## AI on demand
+
+Gemini is used when it provides additional value, mainly for deep explanations.
+
+This keeps the application simple and reduces unnecessary API usage.
+
+# Future Improvements
+
+Possible future additions:
+
+- Adaptive learning.
+- Track performance by type/topic.
+- Identify weak areas.
+- Generate future exams focused on weaknesses.
+- Exam history.
+- Persistent student scores.
+- Difficulty levels.
+- Topics in addition to `type`.
+- Configurable exam distributions.
+- Timed exams.
+- Question review before submission.
+- Unanswered-question detection.
+- Progress dashboards.
+- Study recommendations.
+- Separate practice and mock-exam modes.
+- Improved question import tools.
+
+# Example User Flow
+
+```text
+1. Start application
+        |
+        v
+2. Choose:
+   "Tous les types"
+   OR
+   select specific types
+        |
+        v
+3. Choose number of questions
+        |
+        v
+4. Generate exam
+        |
+        v
+5. Answer QCM
+        |
+        v
+6. Submit
+        |
+        v
+7. Score + correction
+        |
+        v
+8. Open a question
+        |
+        v
+9. See student's answer,
+   correct answer,
+   database explanation
+        |
+        v
+10. Click "Explain in depth"
+        |
+        v
+11. Gemini provides a deeper explanation
+```
+
+# Project Goal
+
+The project provides a structured preparation environment for an Informatique Master's entrance exam using an existing QCM database.
+
+The architecture separates:
+
+```text
+Question data       → JSON
+Workflow            → LangGraph
+Deterministic logic → Python
+User interface      → Streamlit
+AI explanations     → Gemini
+```
+
+This makes the system easier to test, maintain, and extend.

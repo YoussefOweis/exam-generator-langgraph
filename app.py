@@ -1,313 +1,988 @@
 import streamlit as st
 
-from src.graph import exam_graph, correction_graph
-from src.llm import explain_mistakes
+from src.graph import (
+    exam_graph,
+    correction_graph
+)
 
+from src.loader import (
+    get_question_types
+)
+
+from src.llm import (
+    explain_question_in_depth
+)
+
+
+# =========================================================
+# PAGE CONFIGURATION
+# =========================================================
 
 st.set_page_config(
-    page_title="M2I FS Tétouan Preparation",
+    page_title="M2I FS Tétouan - QCM Preparation",
     page_icon="🎓",
     layout="wide"
 )
 
 
-# ---------------------------------------------------------
-# INITIAL STATE
-# ---------------------------------------------------------
+# =========================================================
+# SESSION STATE
+# =========================================================
 
 if "exam" not in st.session_state:
+
     st.session_state.exam = None
 
+
 if "answers" not in st.session_state:
+
     st.session_state.answers = {}
 
+
 if "results" not in st.session_state:
+
     st.session_state.results = None
 
+
 if "score" not in st.session_state:
+
     st.session_state.score = None
 
-if "ai_feedback" not in st.session_state:
-    st.session_state.ai_feedback = None
+
+if "distribution" not in st.session_state:
+
+    st.session_state.distribution = {}
 
 
 # ---------------------------------------------------------
+# AI explanations are stored here
+#
+# question_id -> generated explanation
+# ---------------------------------------------------------
+
+if "ai_explanations" not in st.session_state:
+
+    st.session_state.ai_explanations = {}
+
+
+# =========================================================
+# HELPER FUNCTIONS
+# =========================================================
+
+def get_answer_letter(
+    option: str
+) -> str:
+
+    """
+    Convert:
+
+        B. Some answer
+
+    into:
+
+        B
+    """
+
+    return (
+        option
+        .split(".", 1)[0]
+        .strip()
+    )
+
+
+def get_option_text(
+    answer_letter: str,
+    options: list[str]
+) -> str:
+
+    """
+    Convert:
+
+        B
+
+    into:
+
+        B. Complete answer text
+    """
+
+    for option in options:
+
+        if get_answer_letter(
+            option
+        ) == answer_letter:
+
+            return option
+
+    return answer_letter
+
+
+# =========================================================
 # TITLE
-# ---------------------------------------------------------
+# =========================================================
 
-st.title("🎓 M2I FS Tétouan — QCM Preparation")
+st.title(
+    "🎓 M2I FS Tétouan — QCM Preparation"
+)
 
 st.write(
     "Préparation au concours du Master Informatique "
-    "avec LangGraph."
+    "à partir de votre base de questions."
 )
 
 
-# ---------------------------------------------------------
+# =========================================================
 # SIDEBAR
-# ---------------------------------------------------------
+# =========================================================
 
 with st.sidebar:
 
-    st.header("Exam Configuration")
+    st.header(
+        "⚙️ Configuration de l'examen"
+    )
+
+    # -----------------------------------------------------
+    # GET AVAILABLE TYPES
+    # -----------------------------------------------------
+
+    try:
+
+        question_types = (
+            get_question_types()
+        )
+
+    except Exception as e:
+
+        st.error(
+            f"Impossible de charger les types : {e}"
+        )
+
+        st.stop()
+
+
+    # -----------------------------------------------------
+    # MODE
+    # -----------------------------------------------------
+
+    mode = st.radio(
+        "Mode de sélection",
+        [
+            "Tous les types",
+            "Choisir les types"
+        ]
+    )
+
+
+    # =====================================================
+    # ALL TYPES
+    # =====================================================
+
+    if mode == "Tous les types":
+
+        selected_types = []
+
+        st.info(
+            "Toutes les matières seront utilisées "
+            "avec une répartition proportionnelle "
+            "au nombre de questions disponibles."
+        )
+
+
+    # =====================================================
+    # SELECT TYPES
+    # =====================================================
+
+    else:
+
+        selected_types = st.multiselect(
+            "Choisissez les types",
+            options=question_types
+        )
+
+        if selected_types:
+
+            st.write(
+                "Types sélectionnés :"
+            )
+
+            for question_type in selected_types:
+
+                st.write(
+                    f"• {question_type}"
+                )
+
+        else:
+
+            st.warning(
+                "Sélectionnez au moins un type."
+            )
+
+
+    # -----------------------------------------------------
+    # NUMBER OF QUESTIONS
+    # -----------------------------------------------------
 
     number_of_questions = st.number_input(
         "Nombre de questions",
         min_value=1,
-        max_value=50,
-        value=20
+        max_value=100,
+        value=20,
+        step=1
     )
+
+
+    # -----------------------------------------------------
+    # GENERATE
+    # -----------------------------------------------------
 
     generate_exam = st.button(
-        "🎯 Generate Exam",
+        "🎯 Générer l'examen",
         use_container_width=True
     )
 
-    if st.button(
-        "🔄 Reset",
+
+    # -----------------------------------------------------
+    # RESET
+    # -----------------------------------------------------
+
+    reset = st.button(
+        "🔄 Réinitialiser",
         use_container_width=True
-    ):
-        st.session_state.exam = None
-        st.session_state.answers = {}
-        st.session_state.results = None
-        st.session_state.score = None
-        st.session_state.ai_feedback = None
-
-        st.rerun()
+    )
 
 
-# ---------------------------------------------------------
+# =========================================================
+# RESET
+# =========================================================
+
+if reset:
+
+    st.session_state.exam = None
+
+    st.session_state.answers = {}
+
+    st.session_state.results = None
+
+    st.session_state.score = None
+
+    st.session_state.distribution = {}
+
+    st.session_state.ai_explanations = {}
+
+    st.rerun()
+
+
+# =========================================================
 # GENERATE EXAM
-# ---------------------------------------------------------
+# =========================================================
 
 if generate_exam:
 
+    # -----------------------------------------------------
+    # Validate type selection
+    # -----------------------------------------------------
+
+    if mode == "Choisir les types":
+
+        if not selected_types:
+
+            st.error(
+                "Veuillez sélectionner au moins "
+                "un type de question."
+            )
+
+            st.stop()
+
+
     try:
 
+        # -------------------------------------------------
+        # State passed to LangGraph
+        # -------------------------------------------------
+
         initial_state = {
-            "number_of_questions": number_of_questions
+
+            "number_of_questions":
+                number_of_questions,
+
+            "selected_types":
+                selected_types
         }
+
+
+        # -------------------------------------------------
+        # Generate exam
+        # -------------------------------------------------
 
         result = exam_graph.invoke(
             initial_state
         )
 
-        st.session_state.exam = result["exam"]
+
+        # -------------------------------------------------
+        # Store exam
+        # -------------------------------------------------
+
+        st.session_state.exam = (
+            result["exam"]
+        )
+
+
+        st.session_state.distribution = (
+            result["distribution"]
+        )
+
+
         st.session_state.answers = {}
+
         st.session_state.results = None
+
         st.session_state.score = None
-        st.session_state.ai_feedback = None
+
+        st.session_state.ai_explanations = {}
+
 
         st.rerun()
+
 
     except Exception as e:
 
         st.error(
-            f"Impossible de générer l'examen : {e}"
+            f"Erreur lors de la génération : {e}"
         )
 
 
-# ---------------------------------------------------------
+# =========================================================
+# EXAM DISTRIBUTION
+# =========================================================
+
+if st.session_state.exam:
+
+    st.subheader("📊 Répartition de l'examen")
+
+    distribution = st.session_state.distribution
+
+    total_distribution = sum(
+        distribution.values()
+    )
+
+    if distribution:
+
+        distribution_data = []
+
+        for question_type, count in distribution.items():
+
+            percentage = (
+                count / total_distribution * 100
+                if total_distribution > 0
+                else 0
+            )
+
+            distribution_data.append(
+                {
+                    "Type": question_type,
+                    "Questions": count,
+                    "Pourcentage": f"{percentage:.1f}%"
+                }
+            )
+
+        st.dataframe(
+            distribution_data,
+            use_container_width=True,
+            hide_index=True
+        )
+
+    st.divider()
+
+
+# =========================================================
 # DISPLAY EXAM
-# ---------------------------------------------------------
+# =========================================================
 
 if st.session_state.exam:
 
     exam = st.session_state.exam
 
+
     st.subheader(
-        f"QCM — {len(exam)} questions"
+        f"📝 QCM — {len(exam)} questions"
     )
+
+
+    st.write(
+        "Répondez aux questions puis cliquez "
+        "sur **Terminer l'examen**."
+    )
+
 
     st.divider()
 
+
+    # =====================================================
+    # QUESTIONS
+    # =====================================================
+
     for index, question in enumerate(exam):
 
+        question_number = index + 1
+
+
         st.markdown(
-            f"### Question {index + 1}"
+            f"### Question {question_number}"
         )
+
+
+        st.caption(
+            f"Type : {question['type']}"
+        )
+
+
+        # -------------------------------------------------
+        # QUESTION
+        # -------------------------------------------------
 
         st.write(
             question["question"]
         )
 
-        # -------------------------------------------------
-        # Determine if single-answer or multiple-answer
-        # -------------------------------------------------
 
-        is_multiple = (
-            len(question["correct_answers"]) > 1
-        )
+        # =================================================
+        # MULTIPLE ANSWER
+        # =================================================
 
-        if is_multiple:
+        if len(
+            question["correct_answers"]
+        ) > 1:
 
-            selected = st.multiselect(
+            st.caption(
+                "☑️ Plusieurs réponses sont possibles."
+            )
+
+
+            selected_options = st.multiselect(
                 "Sélectionnez les réponses :",
                 options=question["options"],
                 key=f"question_{question['id']}"
             )
 
+
             st.session_state.answers[
                 question["id"]
             ] = [
-                option[0]
-                for option in selected
+
+                get_answer_letter(
+                    option
+                )
+
+                for option
+                in selected_options
             ]
+
+
+        # =================================================
+        # SINGLE ANSWER
+        # =================================================
 
         else:
 
-            selected = st.radio(
+            st.caption(
+                "🔘 Une seule réponse est possible."
+            )
+
+
+            selected_option = st.radio(
                 "Choisissez une réponse :",
                 options=question["options"],
                 key=f"question_{question['id']}"
             )
 
-            st.session_state.answers[
-                question["id"]
-            ] = [
-                selected[0]
-            ]
+
+            if selected_option:
+
+                st.session_state.answers[
+                    question["id"]
+                ] = [
+
+                    get_answer_letter(
+                        selected_option
+                    )
+
+                ]
+
+            else:
+
+                st.session_state.answers[
+                    question["id"]
+                ] = []
+
 
         st.divider()
 
 
-    # -----------------------------------------------------
+    # =====================================================
     # SUBMIT
-    # -----------------------------------------------------
+    # =====================================================
 
     if st.button(
-        "✅ Submit Exam",
+        "✅ Terminer l'examen",
         use_container_width=True
     ):
 
         correction_state = {
-            "exam": exam,
-            "user_answers": st.session_state.answers
+
+            "exam":
+                exam,
+
+            "user_answers":
+                st.session_state.answers
         }
 
-        result = correction_graph.invoke(
-            correction_state
-        )
 
-        st.session_state.results = result["results"]
-        st.session_state.score = result["score"]
+        try:
 
-        st.rerun()
+            result = (
+                correction_graph.invoke(
+                    correction_state
+                )
+            )
 
 
-# ---------------------------------------------------------
+            st.session_state.results = (
+                result["results"]
+            )
+
+
+            st.session_state.score = (
+                result["score"]
+            )
+
+
+            st.rerun()
+
+
+        except Exception as e:
+
+            st.error(
+                f"Erreur lors de la correction : {e}"
+            )
+
+
+# =========================================================
 # RESULTS
-# ---------------------------------------------------------
+# =========================================================
 
 if st.session_state.results is not None:
 
-    results = st.session_state.results
-    score = st.session_state.score
+    # -----------------------------------------------------
+    # IMPORTANT:
+    # results must be defined inside this block
+    # -----------------------------------------------------
+
+    results = (
+        st.session_state.results
+    )
+
+    score = (
+        st.session_state.score
+    )
 
     total = len(results)
 
+
     percentage = (
-        score / total * 100
+        score
+        / total
+        * 100
         if total > 0
         else 0
     )
 
-    st.header("📊 Results")
+
+    st.header(
+        "📊 Résultats"
+    )
+
+
+    # =====================================================
+    # SCORE
+    # =====================================================
 
     col1, col2, col3 = st.columns(3)
 
+
     with col1:
+
         st.metric(
             "Score",
             f"{score}/{total}"
         )
 
+
     with col2:
+
         st.metric(
-            "Percentage",
+            "Pourcentage",
             f"{percentage:.1f}%"
         )
 
+
     with col3:
+
         st.metric(
-            "Incorrect",
+            "Erreurs",
             total - score
         )
 
+
     st.divider()
 
-    # -----------------------------------------------------
-    # REVIEW ANSWERS
-    # -----------------------------------------------------
 
-    for index, result in enumerate(results):
+    # =====================================================
+    # PERFORMANCE MESSAGE
+    # =====================================================
+
+    if percentage >= 80:
+
+        st.success(
+            "🎉 Excellent résultat !"
+        )
+
+    elif percentage >= 60:
+
+        st.warning(
+            "👍 Bon résultat, mais vous pouvez encore progresser."
+        )
+
+    else:
+
+        st.error(
+            "📚 Continuez à réviser les notions où "
+            "vous avez fait des erreurs."
+        )
+
+
+    st.divider()
+
+
+    # =====================================================
+    # CORRECTION
+    # =====================================================
+
+    st.subheader(
+        "📚 Correction"
+    )
+
+
+    for index, result in enumerate(
+        results
+    ):
+
+        question_number = (
+            index + 1
+        )
+
+
+        # =================================================
+        # STATUS
+        # =================================================
 
         if result["correct"]:
 
             st.success(
-                f"Question {index + 1} — Correct"
+                f"Question {question_number} — ✅ Correct"
             )
 
         else:
 
             st.error(
-                f"Question {index + 1} — Incorrect"
+                f"Question {question_number} — ❌ Incorrect"
             )
+
+
+        # =================================================
+        # EXPANDER
+        # =================================================
+
+        with st.expander(
+            f"👁️ Voir la question {question_number}"
+        ):
+
+
+            # ---------------------------------------------
+            # QUESTION
+            # ---------------------------------------------
+
+            st.markdown(
+                f"### Question {question_number}"
+            )
+
+
+            st.caption(
+                f"Type : {result['type']}"
+            )
+
 
             st.write(
                 result["question"]
             )
 
-            st.write(
-                f"Votre réponse : "
-                f"{', '.join(result['user_answers'])}"
+
+            st.divider()
+
+
+            # =============================================
+            # YOUR ANSWER
+            # =============================================
+
+            st.markdown(
+                "### 🔵 Votre réponse"
             )
 
-            st.write(
-                f"Bonne réponse : "
-                f"{', '.join(result['correct_answers'])}"
-            )
 
-            with st.expander("Voir l'explication"):
+            if result["user_answers"]:
+
+                for answer_letter in (
+                    result["user_answers"]
+                ):
+
+                    answer_text = (
+                        get_option_text(
+                            answer_letter,
+                            result["options"]
+                        )
+                    )
+
+
+                    st.write(
+                        f"🔵 {answer_text}"
+                    )
+
+            else:
 
                 st.write(
-                    result["explanation"]
+                    "❌ Aucune réponse"
                 )
 
 
-    # -----------------------------------------------------
-    # AI EXPLANATION
-    # -----------------------------------------------------
+            # =============================================
+            # CORRECT ANSWER
+            # =============================================
+
+            st.markdown(
+                "### 🟢 Réponse correcte"
+            )
+
+
+            for answer_letter in (
+                result["correct_answers"]
+            ):
+
+                answer_text = (
+                    get_option_text(
+                        answer_letter,
+                        result["options"]
+                    )
+                )
+
+
+                st.write(
+                    f"🟢 {answer_text}"
+                )
+
+
+            st.divider()
+
+
+            # =============================================
+            # DATABASE EXPLANATION
+            # =============================================
+
+            st.markdown(
+                "### 💡 Explication de la base"
+            )
+
+
+            st.info(
+                result["explanation"]
+            )
+
+
+            st.divider()
+
+
+            # =============================================
+            # GEMINI
+            # =============================================
+
+            st.markdown(
+                "### 🤖 Professeur IA"
+            )
+
+
+            question_id = (
+                result["question_id"]
+            )
+
+
+            # ---------------------------------------------
+            # Already generated?
+            # ---------------------------------------------
+
+            if question_id in (
+                st.session_state.ai_explanations
+            ):
+
+                st.markdown(
+                    st.session_state
+                    .ai_explanations[
+                        question_id
+                    ]
+                )
+
+
+            else:
+
+                explain_button = st.button(
+                    "🔎 Expliquer cette question en profondeur",
+                    key=f"explain_{question_id}"
+                )
+
+
+                if explain_button:
+
+                    with st.spinner(
+                        "Gemini analyse la question..."
+                    ):
+
+                        try:
+
+                            explanation = (
+                                explain_question_in_depth(
+
+                                    question=
+                                        result["question"],
+
+                                    options=
+                                        result["options"],
+
+                                    user_answers=
+                                        result["user_answers"],
+
+                                    correct_answers=
+                                        result["correct_answers"],
+
+                                    database_explanation=
+                                        result["explanation"],
+
+                                    question_type=
+                                        result["type"]
+                                )
+                            )
+
+
+                            # ---------------------------------
+                            # Store response
+                            # ---------------------------------
+
+                            st.session_state.ai_explanations[
+                                question_id
+                            ] = explanation
+
+
+                            # ---------------------------------
+                            # Display immediately
+                            # ---------------------------------
+
+                            st.markdown(
+                                explanation
+                            )
+
+
+                        except Exception as e:
+
+                            st.error(
+                                f"Erreur lors de l'appel à Gemini : {e}"
+                            )
+
+
+    # =====================================================
+    # RESULTS BY TYPE
+    # =====================================================
 
     st.divider()
 
-    st.subheader("🤖 AI Tutor")
+    st.subheader(
+        "📈 Résultats par type"
+    )
 
-    if st.button(
-        "Explain my mistakes"
-    ):
 
-        with st.spinner(
-            "Gemini analyse vos erreurs..."
+    type_statistics = {}
+
+
+    for result in results:
+
+        question_type = (
+            result["type"]
+        )
+
+
+        if question_type not in (
+            type_statistics
         ):
 
-            try:
-
-                feedback = explain_mistakes(
-                    results
-                )
-
-                st.session_state.ai_feedback = feedback
-
-            except Exception as e:
-
-                st.error(
-                    f"Erreur Gemini : {e}"
-                )
+            type_statistics[
+                question_type
+            ] = {
+                "correct": 0,
+                "total": 0
+            }
 
 
-    if st.session_state.ai_feedback:
+        type_statistics[
+            question_type
+        ]["total"] += 1
 
-        st.markdown(
-            st.session_state.ai_feedback
+
+        if result["correct"]:
+
+            type_statistics[
+                question_type
+            ]["correct"] += 1
+
+
+    # -----------------------------------------------------
+    # Display statistics
+    # -----------------------------------------------------
+
+    for (
+        question_type,
+        statistics
+    ) in type_statistics.items():
+
+        type_correct = (
+            statistics["correct"]
+        )
+
+        type_total = (
+            statistics["total"]
+        )
+
+
+        type_percentage = (
+            type_correct
+            / type_total
+            * 100
+            if type_total > 0
+            else 0
+        )
+
+
+        st.write(
+            f"**{question_type}** — "
+            f"{type_correct}/{type_total} "
+            f"({type_percentage:.1f}%)"
+        )
+
+
+        st.progress(
+            type_percentage / 100
         )
