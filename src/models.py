@@ -26,25 +26,26 @@ class ExamState(TypedDict, total=False):
 
     all_questions: list[Question]
 
-    filtered_questions: list[Question]
-
     # -----------------------------------------------------
     # Generated exam
     # -----------------------------------------------------
 
     exam: list[Question]
 
+    # Number of questions selected from each type
     distribution: dict[str, int]
 
     # -----------------------------------------------------
     # Student answers
+    # -----------------------------------------------------
+
     # Example:
+    #
     # {
     #     1: ["C"],
     #     21: ["B", "D"]
     # }
-    # -----------------------------------------------------
-
+    #
     user_answers: dict[int, list[str]]
 
     # -----------------------------------------------------
@@ -52,11 +53,10 @@ class ExamState(TypedDict, total=False):
     # -----------------------------------------------------
 
     score: int
-
     results: list[dict]
 
     # -----------------------------------------------------
-    # AI
+    # Optional AI feedback
     # -----------------------------------------------------
 
     ai_feedback: str

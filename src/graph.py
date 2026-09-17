@@ -6,17 +6,20 @@ from langgraph.graph import (
     END
 )
 
-from .models import ExamState
 from .loader import load_questions
+from .models import ExamState
 
 
 # =========================================================
-# LOAD QUESTIONS
+# LOAD QUESTIONS NODE
 # =========================================================
 
 def load_questions_node(
     state: ExamState
 ) -> ExamState:
+    """
+    Load the complete question database.
+    """
 
     questions = load_questions()
 
@@ -34,20 +37,11 @@ def allocate_proportionally(
     total_questions: int
 ) -> dict[str, int]:
     """
-    Allocate questions proportionally according to
-    the number of questions available in each type.
+    Allocate exam questions proportionally according
+    to the number of available questions in each type.
 
-    Example:
-
-        reseaux: 11
-        java: 16
-        c: 5
-
-    A 16-question exam will roughly follow those
-    proportions.
-
-    The function also ensures that, whenever possible,
-    every selected type gets at least one question.
+    Whenever possible, every selected type receives
+    at least one question.
     """
 
     if not counts:
@@ -76,12 +70,14 @@ def allocate_proportionally(
         for question_type in types
     }
 
-    # -----------------------------------------------------
-    # First give one question to each type when possible
-    # -----------------------------------------------------
+    # =====================================================
+    # CASE 1:
+    # Enough questions to give one to every type
+    # =====================================================
 
     if total_questions >= len(types):
 
+        # Give one question to each type
         for question_type in types:
 
             allocation[question_type] = 1
@@ -90,61 +86,132 @@ def allocate_proportionally(
             total_questions - len(types)
         )
 
+        remaining_capacity = {
+            question_type:
+                counts[question_type] - 1
+            for question_type in types
+        }
+
+        total_remaining_capacity = sum(
+            remaining_capacity.values()
+        )
+
+        # -------------------------------------------------
+        # Distribute remaining questions proportionally
+        # -------------------------------------------------
+
+        if remaining > 0:
+
+            exact_allocations = {}
+
+            for question_type in types:
+
+                capacity = remaining_capacity[
+                    question_type
+                ]
+
+                exact = (
+                    remaining
+                    * capacity
+                    / total_remaining_capacity
+                    if total_remaining_capacity > 0
+                    else 0
+                )
+
+                exact_allocations[
+                    question_type
+                ] = exact
+
+            # First take integer parts
+            for question_type in types:
+
+                extra = min(
+                    int(
+                        exact_allocations[
+                            question_type
+                        ]
+                    ),
+                    remaining_capacity[
+                        question_type
+                    ]
+                )
+
+                allocation[
+                    question_type
+                ] += extra
+
+            allocated = sum(
+                allocation.values()
+            )
+
+            leftover = (
+                total_questions - allocated
+            )
+
+            # -------------------------------------------------
+            # Distribute remaining questions using largest
+            # fractional remainder
+            # -------------------------------------------------
+
+            remainders = sorted(
+                types,
+                key=lambda question_type:
+                    exact_allocations[
+                        question_type
+                    ]
+                    - int(
+                        exact_allocations[
+                            question_type
+                        ]
+                    ),
+                reverse=True
+            )
+
+            for question_type in remainders:
+
+                if leftover <= 0:
+                    break
+
+                if (
+                    allocation[question_type]
+                    < counts[question_type]
+                ):
+
+                    allocation[
+                        question_type
+                    ] += 1
+
+                    leftover -= 1
+
+    # =====================================================
+    # CASE 2:
+    # Fewer questions than selected types
+    # =====================================================
+
     else:
 
-        remaining = total_questions
-
-    # -----------------------------------------------------
-    # Distribute remaining questions proportionally
-    # -----------------------------------------------------
-
-    while remaining > 0:
-
-        candidates = [
-            question_type
-            for question_type in types
-            if allocation[question_type]
-            < counts[question_type]
-        ]
-
-        if not candidates:
-            break
-
-        total_available_for_candidates = sum(
-            counts[question_type]
-            for question_type in candidates
+        # Give one question to the types with the
+        # largest number of available questions.
+        selected_types = sorted(
+            types,
+            key=lambda question_type:
+                counts[question_type],
+            reverse=True
         )
 
-        # Current deficit from proportional target
-        deficits = {}
+        for question_type in selected_types[
+            :total_questions
+        ]:
 
-        for question_type in candidates:
-
-            ideal = (
-                total_questions
-                * counts[question_type]
-                / total_available
-            )
-
-            deficits[question_type] = (
-                ideal
-                - allocation[question_type]
-            )
-
-        selected_type = max(
-            deficits,
-            key=deficits.get
-        )
-
-        allocation[selected_type] += 1
-
-        remaining -= 1
+            allocation[
+                question_type
+            ] = 1
 
     return allocation
 
 
 # =========================================================
-# SELECT QUESTIONS
+# SELECT QUESTIONS NODE
 # =========================================================
 
 def select_questions_node(
@@ -164,17 +231,16 @@ def select_questions_node(
         []
     )
 
-    # -----------------------------------------------------
-    # Filter by selected types
-    # -----------------------------------------------------
+    # =====================================================
+    # FILTER TYPES
+    # =====================================================
 
     if selected_types:
 
         available_questions = [
             question
             for question in all_questions
-            if question["type"]
-            in selected_types
+            if question["type"] in selected_types
         ]
 
     else:
@@ -189,9 +255,9 @@ def select_questions_node(
             "aux types sélectionnés."
         )
 
-    # -----------------------------------------------------
-    # Group questions by type
-    # -----------------------------------------------------
+    # =====================================================
+    # GROUP QUESTIONS BY TYPE
+    # =====================================================
 
     questions_by_type: dict[str, list] = {}
 
@@ -209,9 +275,9 @@ def select_questions_node(
             question_type
         ].append(question)
 
-    # -----------------------------------------------------
-    # Count questions
-    # -----------------------------------------------------
+    # =====================================================
+    # COUNT QUESTIONS
+    # =====================================================
 
     counts = {
         question_type: len(
@@ -221,18 +287,18 @@ def select_questions_node(
         in questions_by_type.items()
     }
 
-    # -----------------------------------------------------
-    # Calculate proportional distribution
-    # -----------------------------------------------------
+    # =====================================================
+    # CALCULATE PROPORTIONAL DISTRIBUTION
+    # =====================================================
 
     allocation = allocate_proportionally(
         counts=counts,
         total_questions=number_of_questions
     )
 
-    # -----------------------------------------------------
-    # Select questions
-    # -----------------------------------------------------
+    # =====================================================
+    # SELECT RANDOM QUESTIONS
+    # =====================================================
 
     selected_questions = []
 
@@ -254,9 +320,9 @@ def select_questions_node(
             selected
         )
 
-    # -----------------------------------------------------
-    # Shuffle final exam
-    # -----------------------------------------------------
+    # =====================================================
+    # SHUFFLE FINAL EXAM
+    # =====================================================
 
     random.shuffle(
         selected_questions
@@ -273,7 +339,7 @@ def select_questions_node(
 
 
 # =========================================================
-# VALIDATE EXAM
+# VALIDATE EXAM NODE
 # =========================================================
 
 def validate_exam_node(
@@ -287,7 +353,7 @@ def validate_exam_node(
     ]
 
     # -----------------------------------------------------
-    # Check number of questions
+    # Correct number of questions
     # -----------------------------------------------------
 
     if len(exam) != requested:
@@ -298,7 +364,7 @@ def validate_exam_node(
         )
 
     # -----------------------------------------------------
-    # Check duplicates
+    # No duplicates
     # -----------------------------------------------------
 
     ids = [
@@ -316,7 +382,7 @@ def validate_exam_node(
 
 
 # =========================================================
-# CORRECT EXAM
+# CORRECT EXAM NODE
 # =========================================================
 
 def correct_exam_node(
@@ -350,11 +416,7 @@ def correct_exam_node(
         )
 
         # -------------------------------------------------
-        # Exact comparison
-        #
-        # ["B"] == ["B"]
-        #
-        # ["B", "D"] == ["B", "D"]
+        # Exact answer comparison
         # -------------------------------------------------
 
         is_correct = (
@@ -401,7 +463,7 @@ def correct_exam_node(
 
 
 # =========================================================
-# EXAM GENERATION GRAPH
+# BUILD EXAM GENERATION GRAPH
 # =========================================================
 
 def build_exam_graph():
@@ -449,7 +511,7 @@ def build_exam_graph():
 
 
 # =========================================================
-# CORRECTION GRAPH
+# BUILD CORRECTION GRAPH
 # =========================================================
 
 def build_correction_graph():

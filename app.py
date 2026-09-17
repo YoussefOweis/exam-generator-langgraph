@@ -10,12 +10,12 @@ from src.loader import (
 )
 
 from src.llm import (
-    explain_question_in_depth
+    stream_question_explanation
 )
 
 
 # =========================================================
-# PAGE CONFIGURATION
+# PAGE CONFIG
 # =========================================================
 
 st.set_page_config(
@@ -55,9 +55,9 @@ if "distribution" not in st.session_state:
 
 
 # ---------------------------------------------------------
-# AI explanations are stored here
+# Store completed AI explanations
 #
-# question_id -> generated explanation
+# question_id -> full explanation text
 # ---------------------------------------------------------
 
 if "ai_explanations" not in st.session_state:
@@ -72,7 +72,6 @@ if "ai_explanations" not in st.session_state:
 def get_answer_letter(
     option: str
 ) -> str:
-
     """
     Convert:
 
@@ -94,7 +93,6 @@ def get_option_text(
     answer_letter: str,
     options: list[str]
 ) -> str:
-
     """
     Convert:
 
@@ -102,14 +100,15 @@ def get_option_text(
 
     into:
 
-        B. Complete answer text
+        B. Complete answer
     """
 
     for option in options:
 
-        if get_answer_letter(
-            option
-        ) == answer_letter:
+        if (
+            get_answer_letter(option)
+            == answer_letter
+        ):
 
             return option
 
@@ -141,7 +140,7 @@ with st.sidebar:
     )
 
     # -----------------------------------------------------
-    # GET AVAILABLE TYPES
+    # LOAD TYPES
     # -----------------------------------------------------
 
     try:
@@ -231,18 +230,13 @@ with st.sidebar:
 
 
     # -----------------------------------------------------
-    # GENERATE
+    # BUTTONS
     # -----------------------------------------------------
 
     generate_exam = st.button(
         "🎯 Générer l'examen",
         use_container_width=True
     )
-
-
-    # -----------------------------------------------------
-    # RESET
-    # -----------------------------------------------------
 
     reset = st.button(
         "🔄 Réinitialiser",
@@ -278,7 +272,7 @@ if reset:
 if generate_exam:
 
     # -----------------------------------------------------
-    # Validate type selection
+    # Validate selected types
     # -----------------------------------------------------
 
     if mode == "Choisir les types":
@@ -296,7 +290,7 @@ if generate_exam:
     try:
 
         # -------------------------------------------------
-        # State passed to LangGraph
+        # Initial state
         # -------------------------------------------------
 
         initial_state = {
@@ -310,7 +304,7 @@ if generate_exam:
 
 
         # -------------------------------------------------
-        # Generate exam
+        # LangGraph
         # -------------------------------------------------
 
         result = exam_graph.invoke(
@@ -319,18 +313,16 @@ if generate_exam:
 
 
         # -------------------------------------------------
-        # Store exam
+        # Save exam
         # -------------------------------------------------
 
         st.session_state.exam = (
             result["exam"]
         )
 
-
         st.session_state.distribution = (
             result["distribution"]
         )
-
 
         st.session_state.answers = {}
 
@@ -340,6 +332,10 @@ if generate_exam:
 
         st.session_state.ai_explanations = {}
 
+
+        # -------------------------------------------------
+        # Refresh
+        # -------------------------------------------------
 
         st.rerun()
 
@@ -357,39 +353,58 @@ if generate_exam:
 
 if st.session_state.exam:
 
-    st.subheader("📊 Répartition de l'examen")
+    st.subheader(
+        "📊 Répartition de l'examen"
+    )
 
-    distribution = st.session_state.distribution
+    distribution = (
+        st.session_state.distribution
+    )
 
     total_distribution = sum(
         distribution.values()
     )
 
+
     if distribution:
 
         distribution_data = []
 
-        for question_type, count in distribution.items():
+
+        for (
+            question_type,
+            count
+        ) in distribution.items():
 
             percentage = (
-                count / total_distribution * 100
+                count
+                / total_distribution
+                * 100
                 if total_distribution > 0
                 else 0
             )
 
             distribution_data.append(
                 {
-                    "Type": question_type,
-                    "Questions": count,
-                    "Pourcentage": f"{percentage:.1f}%"
+                    "Type":
+                        question_type,
+
+                    "Questions":
+                        count,
+
+                    "Pourcentage":
+                        f"{percentage:.1f}%"
                 }
             )
 
+
+        # Full words are displayed without narrow columns.
         st.dataframe(
             distribution_data,
             use_container_width=True,
             hide_index=True
         )
+
 
     st.divider()
 
@@ -421,7 +436,9 @@ if st.session_state.exam:
     # QUESTIONS
     # =====================================================
 
-    for index, question in enumerate(exam):
+    for index, question in enumerate(
+        exam
+    ):
 
         question_number = index + 1
 
@@ -446,7 +463,7 @@ if st.session_state.exam:
 
 
         # =================================================
-        # MULTIPLE ANSWER
+        # MULTIPLE ANSWERS
         # =================================================
 
         if len(
@@ -469,9 +486,7 @@ if st.session_state.exam:
                 question["id"]
             ] = [
 
-                get_answer_letter(
-                    option
-                )
+                get_answer_letter(option)
 
                 for option
                 in selected_options
@@ -539,10 +554,8 @@ if st.session_state.exam:
 
         try:
 
-            result = (
-                correction_graph.invoke(
-                    correction_state
-                )
+            result = correction_graph.invoke(
+                correction_state
             )
 
 
@@ -572,11 +585,6 @@ if st.session_state.exam:
 
 if st.session_state.results is not None:
 
-    # -----------------------------------------------------
-    # IMPORTANT:
-    # results must be defined inside this block
-    # -----------------------------------------------------
-
     results = (
         st.session_state.results
     )
@@ -588,6 +596,10 @@ if st.session_state.results is not None:
     total = len(results)
 
 
+    # -----------------------------------------------------
+    # Percentage
+    # -----------------------------------------------------
+
     percentage = (
         score
         / total
@@ -597,13 +609,17 @@ if st.session_state.results is not None:
     )
 
 
+    # =====================================================
+    # RESULTS HEADER
+    # =====================================================
+
     st.header(
         "📊 Résultats"
     )
 
 
     # =====================================================
-    # SCORE
+    # SCORE CARDS
     # =====================================================
 
     col1, col2, col3 = st.columns(3)
@@ -676,9 +692,7 @@ if st.session_state.results is not None:
         results
     ):
 
-        question_number = (
-            index + 1
-        )
+        question_number = index + 1
 
 
         # =================================================
@@ -705,7 +719,6 @@ if st.session_state.results is not None:
         with st.expander(
             f"👁️ Voir la question {question_number}"
         ):
-
 
             # ---------------------------------------------
             # QUESTION
@@ -810,7 +823,7 @@ if st.session_state.results is not None:
 
 
             # =============================================
-            # GEMINI
+            # GEMINI DEEP EXPLANATION
             # =============================================
 
             st.markdown(
@@ -823,9 +836,9 @@ if st.session_state.results is not None:
             )
 
 
-            # ---------------------------------------------
+            # -------------------------------------------------
             # Already generated?
-            # ---------------------------------------------
+            # -------------------------------------------------
 
             if question_id in (
                 st.session_state.ai_explanations
@@ -839,6 +852,10 @@ if st.session_state.results is not None:
                 )
 
 
+            # -------------------------------------------------
+            # Generate new explanation
+            # -------------------------------------------------
+
             else:
 
                 explain_button = st.button(
@@ -849,59 +866,55 @@ if st.session_state.results is not None:
 
                 if explain_button:
 
-                    with st.spinner(
-                        "Gemini analyse la question..."
-                    ):
+                    st.markdown(
+                        "### 🤖 Explication détaillée"
+                    )
 
-                        try:
 
-                            explanation = (
-                                explain_question_in_depth(
+                    try:
 
-                                    question=
-                                        result["question"],
+                        # -----------------------------------------
+                        # Stream Gemini response
+                        # -----------------------------------------
 
-                                    options=
-                                        result["options"],
+                        full_response = st.write_stream(
+                            stream_question_explanation(
 
-                                    user_answers=
-                                        result["user_answers"],
+                                question=
+                                    result["question"],
 
-                                    correct_answers=
-                                        result["correct_answers"],
+                                options=
+                                    result["options"],
 
-                                    database_explanation=
-                                        result["explanation"],
+                                user_answers=
+                                    result["user_answers"],
 
-                                    question_type=
-                                        result["type"]
-                                )
+                                correct_answers=
+                                    result["correct_answers"],
+
+                                database_explanation=
+                                    result["explanation"],
+
+                                question_type=
+                                    result["type"]
                             )
+                        )
 
 
-                            # ---------------------------------
-                            # Store response
-                            # ---------------------------------
+                        # -----------------------------------------
+                        # Save complete response
+                        # -----------------------------------------
 
-                            st.session_state.ai_explanations[
-                                question_id
-                            ] = explanation
-
-
-                            # ---------------------------------
-                            # Display immediately
-                            # ---------------------------------
-
-                            st.markdown(
-                                explanation
-                            )
+                        st.session_state.ai_explanations[
+                            question_id
+                        ] = full_response
 
 
-                        except Exception as e:
+                    except Exception as e:
 
-                            st.error(
-                                f"Erreur lors de l'appel à Gemini : {e}"
-                            )
+                        st.error(
+                            f"Erreur lors de l'appel à Gemini : {e}"
+                        )
 
 
     # =====================================================
@@ -909,6 +922,7 @@ if st.session_state.results is not None:
     # =====================================================
 
     st.divider()
+
 
     st.subheader(
         "📈 Résultats par type"
@@ -950,15 +964,18 @@ if st.session_state.results is not None:
 
 
     # -----------------------------------------------------
-    # Display statistics
+    # Create table
     # -----------------------------------------------------
+
+    type_results_data = []
+
 
     for (
         question_type,
         statistics
     ) in type_statistics.items():
 
-        type_correct = (
+        correct = (
             statistics["correct"]
         )
 
@@ -966,9 +983,8 @@ if st.session_state.results is not None:
             statistics["total"]
         )
 
-
         type_percentage = (
-            type_correct
+            correct
             / type_total
             * 100
             if type_total > 0
@@ -976,13 +992,25 @@ if st.session_state.results is not None:
         )
 
 
-        st.write(
-            f"**{question_type}** — "
-            f"{type_correct}/{type_total} "
-            f"({type_percentage:.1f}%)"
+        type_results_data.append(
+            {
+                "Type":
+                    question_type,
+
+                "Correct":
+                    correct,
+
+                "Total":
+                    type_total,
+
+                "Pourcentage":
+                    f"{type_percentage:.1f}%"
+            }
         )
 
 
-        st.progress(
-            type_percentage / 100
-        )
+    st.dataframe(
+        type_results_data,
+        use_container_width=True,
+        hide_index=True
+    )
