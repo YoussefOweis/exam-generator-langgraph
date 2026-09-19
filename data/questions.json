@@ -3110,20 +3110,6 @@
     "explanation": "En théorie des graphes et en informatique, un arbre est défini comme un graphe non orienté connexe et acyclique (sans cycle)."
   },
   {
-    "id": 210,
-    "type": "structures_donnees",
-    "question": "On dispose du type de donnée arbin représentant les arbres binaires. L'algorithme de parcours d'un arbre binaire A en ordre infixe est donné ci-dessous. La suite des sommets visités selon l'ordre infixe dans l'arbre binaire est:\nvoid infixe(A: arbin) {\n    if(!vide(A)) {\n        infixe(ag(A));\n        printf(\"%c\", rac(A));\n        infixe(ad(A));\n    }\n}",
-    "options": [
-      "A. ABDCEGFHI",
-      "B. DBAGECHFI",
-      "C. DBGEHIFCA"
-    ],
-    "correct_answers": [
-      "B"
-    ],
-    "explanation": "Le parcours infixe visite récursivement le sous-arbre gauche, puis traite la racine, et enfin visite le sous-arbre droit (Gauche -> Racine -> Droit)."
-  },
-  {
     "id": 211,
     "type": "structures_donnees",
     "question": "Dans un arbre binaire de recherche:",
@@ -3242,22 +3228,6 @@
       "B"
     ],
     "explanation": "Si aucun constructeur n'est écrit explicitement, le compilateur crée un constructeur par défaut (sans arguments et au corps vide) pour permettre l'instanciation."
-  },
-  {
-    "id": 219,
-    "type": "uml",
-    "question": "Selon le diagramme de cas d'utilisation, quelles sont les combinaisons d'acteurs qui communiquent avec le cas d'utilisation?",
-    "options": [
-      "A. Y",
-      "B. X et Y",
-      "C. Y et Y",
-      "D. X",
-      "E. X et X"
-    ],
-    "correct_answers": [
-      "B"
-    ],
-    "explanation": "Dans un diagramme de cas d'utilisation UML, la combinaison complète des acteurs connectés au cas d'utilisation est composée des acteurs X et Y."
   },
   {
     "id": 220,
@@ -4567,20 +4537,6 @@
       "C"
     ],
     "explanation": "Le parcours infixe d'un Arbre Binaire de Recherche produit toujours les éléments dans l'ordre croissant."
-  },
-  {
-    "id": 307,
-    "type": "structures_donnees",
-    "question": "On dispose du type de donnée arbin représentant les arbres binaires. L'algorithme de parcours d'un arbre binaire A en ordre infixe est donné ci-dessous. La suite des sommets visités selon l'ordre infixe dans l'arbre binaire suivant est :\n\nvoid infixe(A: arbin) {\n    if (!vide(A)) {\n        infixe(ag(A));\n        printf(\"%c \", rac(A));\n        infixe(ad(A));\n    }\n}",
-    "options": [
-      "A. ABDCEGFHI",
-      "B. DBAGECHFI",
-      "C. DBGEHIFCA"
-    ],
-    "correct_answers": [
-      "B"
-    ],
-    "explanation": "Le parcours infixe visite le sous-arbre gauche, puis la racine, puis le sous-arbre droit."
   },
   {
     "id": 308,
